@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colors */
+  --color-primary: #003049;
+  --color-secondary: #B0C8D7;
+
+  --color-accent: #F77F00;
+  --color-accent-hover: #D96D00;
+
+  --color-background: #F8F9FA;
+  --color-surface: #FFFFFF;
+
+  --color-text-primary: #1F2937;
+  --color-text-secondary: #6B7280;
+
+  --color-border: #E5E7EB;
+
+  /* Font */
+  --font-poppins: "Poppins", sans-serif;
+}
+
+/* Reusable Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4;
+}
