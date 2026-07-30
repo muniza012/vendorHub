@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-      <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../css/home-before.css">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/home-before.css">
 </head>
+
 <body>
   <!-- Top Navigation Bar -->
   <header class="navbar">
     <div class="nav-left">
-        <img class="logo" src="../../assets/gemini-svg.svg" alt="">
+      <img class="logo" src="../../assets/gemini-svg.svg" alt="">
       <!-- <a href="#" class="logo">Rakuten</a> -->
       <a href="#" class="nav-link">
         Shop by Category <span class="chevron"></span>
@@ -24,14 +26,101 @@
       <a href="#" class="nav-link">Mobile App</a>
     </div>
     <div class="nav-right">
-      <a href="#" class="btn-sign-in">Sign In</a>
-      <a href="#" class="btn-join">Join for Free</a>
+      <!-- <a href="#" class="btn-sign-in">Sign In</a> -->
+      <!-- Modal Open karne wala Button -->
+      <button class="Login" id="log" >Login</button>
+      <div id="loginModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeBtn">&times;</span>
+          <div class="login-card">
+            <!-- Tab Headers -->
+            <div class="tab-header">
+              <button type="button" class="tab-btn active" id="customerTab" onclick="switchRole('customer')">
+                Customer Login
+              </button>
+              <button type="button" class="tab-btn" id="sellerTab" onclick="switchRole('seller')">
+                Seller Login
+              </button>
+            </div>
+
+            <!-- Form Body -->
+            <form id="loginForm" onsubmit="handleLogin(event)">
+              <h2 id="formTitle">Welcome Back!</h2>
+              <p id="formSubtitle" class="subtitle">Log in to manage your orders and wishlist.</p>
+
+              <!-- Hidden input to track role for API payload -->
+              <input type="hidden" id="userRole" name="role" value="customer">
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="name@example.com">
+              </div>
+
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required placeholder="••••••••">
+              </div>
+
+              <div class="form-options">
+                <label class="remember-me">
+                  <input type="checkbox" id="rememberMe"> Remember me
+                </label>
+                <a href="#" class="forgot-pass">Forgot Password?</a>
+              </div>
+
+              <button type="submit" id="submitBtn" class="submit-btn">
+                Log In as Customer
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="btn-join" id="openBtn">Join for Free</a>
+      <!-- Modal Container -->
+      <div id="signUpModal" class="modal">
+        <div class="modal-content">
+          <span class="close-btn" id="closeBtn">&times;</span>
+
+          <form class="form">
+            <p class="title">Register </p>
+            <p class="message">Signup now and get full access to our app. </p>
+            <div class="flex">
+              <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>Firstname</span>
+              </label>
+
+              <label>
+                <input required="" placeholder="" type="text" class="input">
+                <span>Lastname</span>
+              </label>
+            </div>
+
+            <label>
+              <input required="" placeholder="" type="email" class="input">
+              <span>Email</span>
+            </label>
+
+            <label>
+              <input required="" placeholder="" type="password" class="input">
+              <span>Password</span>
+            </label>
+            <label>
+              <input required="" placeholder="" type="password" class="input">
+              <span>Confirm password</span>
+            </label>
+            <button class="submit">Submit</button>
+            <p class="signin">Already have an acount ? <a href="#">Login</a> </p>
+          </form>
+        </div>
+      </div>
+
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    
+
     <!-- Left Hero Banner -->
     <div class="hero-content">
       <h1 class="hero-title">
@@ -48,14 +137,14 @@
 
     <!-- Right Hero Visual Showcase (Synced Animation) -->
     <div class="hero-visual">
-      
+
       <!-- Slide 1: Shop in stores -->
       <div class="card-slide slide-1">
         <div class="product-card">
           <div class="cashback-pill">$29.99 Cash Back</div>
           <div class="product-info">
             <img src="../../assets/ikea-product1.jpg" alt="">
-          <div class="store-logo" style="background:#0058a3; color:#ffcc00;">IKEA</div>
+            <div class="store-logo" style="background:#0058a3; color:#ffcc00;">IKEA</div>
 
             <h4>IKEA</h4>
             <p>SOTENÄS Armchair</p>
@@ -71,19 +160,19 @@
         <div class="product-card">
 
           <div class="cashback-pill">$8.28 Cash Back</div>
-          
+
 
           <div class="product-info">
-           
+
             <img src="../../assets/makeup-product3.jpg" alt="" srcset="">
-          <div class="store-logo" style="background:#f37023; color:#fff;">ULTA</div>
-           
+            <div class="store-logo" style="background:#f37023; color:#fff;">ULTA</div>
+
             <h4>Ulta Beauty</h4>
             <p>Drunk Elephant Mask</p>
           </div>
         </div>
         <div class="main-image-container">
-<img src="../../assets/big-pic2.jpg" alt="">
+          <img src="../../assets/big-pic2.jpg" alt="">
         </div>
       </div>
 
@@ -92,8 +181,8 @@
         <div class="product-card">
           <div class="cashback-pill">$5.85 Cash Back</div>
           <div class="product-info">
-          <img src="../../assets/juice-product2.jpg" alt="">
-          <div class="store-logo" style="background:#1a1a1a; color:#fff;">Smyth</div>
+            <img src="../../assets/juice-product2.jpg" alt="">
+            <div class="store-logo" style="background:#1a1a1a; color:#fff;">Smyth</div>
 
             <h4>Smyth Tavern</h4>
             <p>Dinner and drinks</p>
@@ -111,9 +200,10 @@
   <!-- Accessibility Badge (Bottom Left) -->
   <div class="accessibility-btn" title="Accessibility Options">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 2a2 2 0 100 4 2 2 0 000-4zm8 7h-5v12h-2v-6h-2v6H9V9H4V7h16v2z"/>
+      <path d="M12 2a2 2 0 100 4 2 2 0 000-4zm8 7h-5v12h-2v-6h-2v6H9V9H4V7h16v2z" />
     </svg>
   </div>
-    <script type="modules" src="../js/home-before.js"></script>
+  <script src="../js/home-before.js"></script>
 </body>
+
 </html>
