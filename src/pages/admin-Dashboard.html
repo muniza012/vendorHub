@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../../src/css/admin-dashboard.css">
+</head>
+<body>
+    <header class="navbar">
+    <a href="#" class="navbar-brand">
+      <i class="fa-solid fa-cart-shopping"></i> opencart
+    </a>
+    <div class="navbar-user">
+      <img src="https://via.placeholder.com/32" alt="User Avatar">
+      <span>demo demo</span>
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">Navigation</div>
+      <ul class="sidebar-menu">
+        <li class="active">
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-puzzle-piece"></i> <span>Extensions</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-palette"></i> <span>Design</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-cart-shopping"></i> <span>Sales</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-bullhorn"></i> <span>Marketing</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-gear"></i> <span>System</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-chart-line"></i> <span>Reports</span></span>
+            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-stats">
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Orders Completed</span>
+            <span>0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+        </div>
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Orders Processing</span>
+            <span>23%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 23%;"></div></div>
+        </div>
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Other Statuses</span>
+            <span>0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="breadcrumb">
+          <a href="#">Home</a> / <span>Dashboard</span>
+        </div>
+      </div>
+
+      <!-- Top KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Orders</h4>
+              <h2>132</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-shopping-bag"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Sales</h4>
+              <h2>205.9K</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-credit-card"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Customers</h4>
+              <h2>104</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-user"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>People Online</h4>
+              <h2>17</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Analytics Card (Full Row) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-chart-bar"></i> Sales Analytics
+          </div>
+          <div class="card-actions">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #3B82F6;"></div>
+              <span>Orders</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color" style="background-color: #93C5FD;"></div>
+              <span>Customers</span>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <div class="chart-y-axis">
+              <span>1.0</span>
+              <span>0.5</span>
+              <span>0.0</span>
+              <span>-0.5</span>
+              <span>-1.0</span>
+            </div>
+            <div class="chart-grid-lines">
+              <div class="grid-line"></div>
+              <div class="grid-line"></div>
+              <div class="grid-line"></div>
+              <div class="grid-line"></div>
+              <div class="grid-line"></div>
+            </div>
+          </div>
+          
+          <div class="chart-x-axis">
+            <span>01</span><span>02</span><span>03</span><span>04</span><span>05</span>
+            <span>06</span><span>07</span><span>08</span><span>09</span><span>10</span>
+            <span>11</span><span>12</span><span>13</span><span>14</span><span>15</span>
+            <span>16</span><span>17</span><span>18</span><span>19</span><span>20</span>
+            <span>21</span><span>22</span><span>23</span><span>24</span><span>25</span>
+            <span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Layout: Recent Activity & Latest Orders -->
+      <div class="dashboard-grid">
+        <!-- Recent Activity Panel -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <i class="fa-solid fa-clock"></i> Recent Activity
+            </div>
+          </div>
+          <div class="card-body">
+            <ul class="activity-list">
+              <li class="activity-item">
+                <div class="activity-text">
+                  <a href="#">davis huang</a> created a <a href="#">new order</a>.
+                </div>
+                <div class="activity-time">
+                  <i class="fa-regular fa-clock"></i> 16/07/2026 03:12:26
+                </div>
+              </li>
+              <li class="activity-item">
+                <div class="activity-text">
+                  <a href="#">davis huang</a> created a <a href="#">new order</a>.
+                </div>
+                <div class="activity-time">
+                  <i class="fa-regular fa-clock"></i> 16/07/2026 03:10:56
+                </div>
+              </li>
+              <li class="activity-item">
+                <div class="activity-text">
+                  <a href="#">Emma w</a> created a <a href="#">new order</a>.
+                </div>
+                <div class="activity-time">
+                  <i class="fa-regular fa-clock"></i> 30/04/2026 12:15:48
+                </div>
+              </li>
+              <li class="activity-item">
+                <div class="activity-text">
+                  <a href="#">Kürşat Yasin Yıldırım</a> added a <a href="#">new order</a>.
+                </div>
+                <div class="activity-time">
+                  <i class="fa-regular fa-clock"></i> 19/04/2026 23:20:38
+                </div>
+              </li>
+              <li class="activity-item">
+                <div class="activity-text">
+                  <a href="#">Kürşat Yasin Yıldırım</a> added a new address.
+                </div>
+                <div class="activity-time">
+                  <i class="fa-regular fa-clock"></i> 19/04/2026 23:20:33
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Latest Orders Panel -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <i class="fa-solid fa-shopping-cart"></i> Latest Orders
+            </div>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Date Added</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>201</td>
+                    <td>davis huang</td>
+                    <td><span class="badge">Pending</span></td>
+                    <td>16/07/2026</td>
+                    <td>$106.00</td>
+                    <td><button class="btn-action"><i class="fa-solid fa-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>200</td>
+                    <td>davis huang</td>
+                    <td><span class="badge">Pending</span></td>
+                    <td>16/07/2026</td>
+                    <td>$404.98</td>
+                    <td><button class="btn-action"><i class="fa-solid fa-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>199</td>
+                    <td>Emma w</td>
+                    <td><span class="badge">Pending</span></td>
+                    <td>30/04/2026</td>
+                    <td>$204.99</td>
+                    <td><button class="btn-action"><i class="fa-solid fa-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>198</td>
+                    <td>Kürşat Yasin Yldrm</td>
+                    <td><span class="badge">Pending</span></td>
+                    <td>19/04/2026</td>
+                    <td>$85.00</td>
+                    <td><button class="btn-action"><i class="fa-solid fa-eye"></i></button></td>
+                  </tr>
+                  <tr>
+                    <td>196</td>
+                    <td>Joy Creative</td>
+                    <td><span class="badge">Pending</span></td>
+                    <td>04/03/2026</td>
+                    <td>$106.00</td>
+                    <td><button class="btn-action"><i class="fa-solid fa-eye"></i></button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="#">OpenCart</a> © 2009-2026 All Rights Reserved.<br>
+    Version 3.0.3.7
+  </footer>
+</body>
+</html>

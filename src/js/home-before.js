@@ -1,3 +1,4 @@
+import {auth,createUserWithEmailAndPassword}from "../firebase.config.js"
 const modal = document.getElementById("signUpModal");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
