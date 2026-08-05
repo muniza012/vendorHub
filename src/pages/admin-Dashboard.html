@@ -4,16 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+
     <link rel="stylesheet" href="../../src/css/admin-dashboard.css">
 </head>
 <body>
     <header class="navbar">
-    <a href="#" class="navbar-brand">
-      <i class="fa-solid fa-cart-shopping"></i> opencart
-    </a>
+    <a href="#" class="navbar-brand ">
+      <img class="logo" src="../../assets/gemini-svg.svg" alt="">
     <div class="navbar-user">
       <img src="https://via.placeholder.com/32" alt="User Avatar">
       <span>demo demo</span>
+      
       <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
@@ -28,12 +30,18 @@
             <span class="menu-title"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></span>
           </a>
         </li>
-        <li>
-          <a href="#">
-            <span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span>
-            <i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i>
-          </a>
-        </li>
+        <li class="has-dropdown">
+  <input type="checkbox" id="catalog-toggle" class="dropdown-toggle">
+  <label for="catalog-toggle" class="dropdown-label">
+    <span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span>
+    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+  </label>
+  <ul class="dropdown-menu">
+    <li><a href="#">Categories</a></li>
+    <li><a href="#">Products</a></li>
+    <li><a href="#">Manufacturers</a></li>
+  </ul>
+</li>
         <li>
           <a href="#">
             <span class="menu-title"><i class="fa-solid fa-puzzle-piece"></i> <span>Extensions</span></span>
