@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cart</title>
+    <title>Checkout</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -168,6 +168,256 @@
     </header>
     <!--header ends-->
 
+    <main class="container-custom py-10">
+
+      <h1 class="text-3xl font-bold mb-8">
+        Checkout
+      </h1>
+    
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    
+        <!-- ================= LEFT ================= -->
+    
+        <section class="lg:col-span-2">
+    
+          <div class="bg-white rounded-2xl border border-border p-6">
+    
+            <h2 class="text-2xl font-semibold mb-8">
+              Shipping Information
+            </h2>
+    
+            <form id="checkout-form" class="space-y-6">
+    
+              <!-- Name + Phone -->
+    
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    
+                <div>
+    
+                  <label class="block mb-2 font-medium">
+                    Full Name
+                  </label>
+    
+                  <input
+                    id="name"
+                    type="text"
+                    required
+                    minlength="3"
+                    autocomplete="name"
+                    placeholder="Enter your full name"
+                    class="w-full rounded-lg border border-border p-3 outline-none focus:border-accent"
+                  >
+    
+                </div>
+    
+                <div>
+    
+                  <label class="block mb-2 font-medium">
+                    Phone Number
+                  </label>
+    
+                  <input
+                    id="phone"
+                    type="tel"
+                    required
+                    maxlength="11"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                    placeholder="03XXXXXXXXX"
+                    class="w-full rounded-lg border border-border p-3 outline-none focus:border-accent"
+                  >
+    
+                </div>
+    
+              </div>
+    
+              <!-- Email -->
+    
+              <div>
+    
+                <label class="block mb-2 font-medium">
+                  Email Address
+                </label>
+    
+                <input
+                  id="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  placeholder="example@email.com"
+                  class="w-full rounded-lg border border-border p-3 outline-none focus:border-accent"
+                >
+    
+              </div>
+    
+              <!-- Address -->
+    
+              <div>
+    
+                <label class="block mb-2 font-medium">
+                  Street Address
+                </label>
+    
+                <textarea
+                  id="address"
+                  rows="4"
+                  required
+                  autocomplete="street-address"
+                  placeholder="House No, Street, Area"
+                  class="w-full rounded-lg border border-border p-3 outline-none resize-none focus:border-accent"
+                ></textarea>
+    
+              </div>
+    
+              <!-- City + Postal -->
+    
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+    
+                <div>
+    
+                  <label class="block mb-2 font-medium">
+                    City
+                  </label>
+    
+                  <input
+                    id="city"
+                    type="text"
+                    required
+                    autocomplete="address-level2"
+                    placeholder="Karachi"
+                    class="w-full rounded-lg border border-border p-3 outline-none focus:border-accent"
+                  >
+    
+                </div>
+    
+                <div>
+    
+                  <label class="block mb-2 font-medium">
+                    Postal Code
+                  </label>
+    
+                  <input
+                    id="postal"
+                    type="text"
+                    required
+                    autocomplete="postal-code"
+                    placeholder="74000"
+                    class="w-full rounded-lg border border-border p-3 outline-none focus:border-accent"
+                  >
+    
+                </div>
+    
+              </div>
+    
+              <!-- Payment -->
+    
+              <div class="pt-3">
+    
+                <h3 class="text-xl font-semibold mb-5">
+                  Payment Method
+                </h3>
+    
+                <div class="space-y-4">
+    
+                  <label class="flex items-center gap-3 cursor-pointer">
+    
+                    <input
+                      type="radio"
+                      name="payment"
+                      checked
+                    >
+    
+                    <span>
+                      Cash on Delivery
+                    </span>
+    
+                  </label>
+    
+                  <label class="flex items-center gap-3 opacity-50 cursor-not-allowed">
+    
+                    <input
+                      type="radio"
+                      disabled
+                    >
+    
+                    <span>
+                      Credit / Debit Card (Coming Soon)
+                    </span>
+    
+                  </label>
+    
+                  <label class="flex items-center gap-3 opacity-50 cursor-not-allowed">
+    
+                    <input
+                      type="radio"
+                      disabled
+                    >
+    
+                    <span>
+                      JazzCash / EasyPaisa (Coming Soon)
+                    </span>
+    
+                  </label>
+    
+                </div>
+    
+              </div>
+    
+              <!-- Terms -->
+    
+              <label class="flex items-start gap-3 pt-3 cursor-pointer">
+    
+                <input
+                  id="terms"
+                  type="checkbox"
+                  class="mt-1"
+                >
+    
+                <span class="text-sm text-text-secondary">
+    
+                  I agree to VendorHub's Terms & Conditions and Privacy Policy.
+    
+                </span>
+    
+              </label>
+    
+            </form>
+    
+          </div>
+    
+        </section>
+    
+        <!-- ================= RIGHT ================= -->
+    
+        <aside
+          class="bg-white rounded-2xl border border-border p-6 h-fit lg:sticky lg:top-24"
+        >
+    
+          <h2 class="text-2xl font-semibold mb-6">
+            Order Summary
+          </h2>
+    
+          <div
+            id="checkout-summary"
+            class="space-y-5"
+          >
+    
+          </div>
+    
+          <button
+            id="place-order-btn"
+            class="w-full mt-8 py-4 rounded-full bg-accent text-white font-medium hover:bg-accent-hover transition"
+          >
+    
+            Place Order
+    
+          </button>
+    
+        </aside>
+    
+      </div>
+    
+    </main>
    
     <script type="module" src="../js/checkout.js"></script>
   </body>

@@ -245,9 +245,12 @@ function renderCart() {
     </div>
 
     <button
+    id="checkout-btn"
         class="w-full mt-6 py-4 rounded-full
+        
                bg-accent text-white
                hover:bg-accent-hover transition"
+               
     >
 
         Proceed to Checkout
@@ -256,4 +259,9 @@ function renderCart() {
 
 </div>
 `;
+const checkoutBtn = document.getElementById("checkout-btn");
+
+checkoutBtn.addEventListener("click", () => {
+  window.location.href = "checkout.html";
+});
 }
