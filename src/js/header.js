@@ -1,0 +1,42 @@
+const cartCount = document.getElementById("cart-count");
+
+export function updateCartBadge() {
+  const cartCount = document.getElementById("cart-count");
+
+  // If this page doesn't have a cart badge, do nothing.
+  if (!cartCount) return;
+
+  const cart = JSON.parse(localStorage.getItem("vendorHubCart")) || [];
+
+  let totalItems = 0;
+
+  cart.forEach((item) => {
+    totalItems += item.quantity;
+  });
+
+  if (totalItems === 0) {
+    cartCount.classList.add("hidden");
+  } else {
+    cartCount.classList.remove("hidden");
+
+    cartCount.textContent = totalItems;
+  }
+}
+updateCartBadge();
+
+export function updateWishlistBadge() {
+  const wishlist = JSON.parse(localStorage.getItem("vendorHubWishlist")) || [];
+
+  const wishlistCount = document.getElementById("wishlist-count");
+
+  if (!wishlistCount) return;
+
+  if (wishlist.length === 0) {
+    wishlistCount.classList.add("hidden");
+  } else {
+    wishlistCount.classList.remove("hidden");
+
+    wishlistCount.textContent = wishlist.length;
+  }
+}
+updateWishlistBadge();

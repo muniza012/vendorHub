@@ -1,0 +1,881 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/output.css" />
+  </head>
+  <body class="bg-background text-text-primary font-poppins">
+    <div class="header-nav bg-background sticky top-0 z-50">
+      <!-- Navbar -->
+      <nav
+        class="hidden md:flex container-custom h-[40px] justify-end text-gray-600"
+      >
+        <div class="flex gap-4 text-xs">
+          <a href="" class="py-2 hover:text-accent-hover">Refer & Earn $50</a>
+          <a href="" class="py-2 hover:text-accent-hover">VendorHub Card</a>
+          <a href="" class="py-2 hover:text-accent-hover">VendorHub Dining</a>
+          <a href="" class="py-2 hover:text-accent-hover">VendorHub+</a>
+          <a href="" class="py-2 hover:text-accent-hover">How we make money</a>
+        </div>
+      </nav>
+
+      <!--header start-->
+      <header
+    id="header"
+    class="sticky top-0 z-50 bg-primary text-text-white py-4 border-b border-border shadow-md"
+    >
+        <div
+          class="container-custom h-full flex flex-col md:flex-row md:items-center gap-5"
+        >
+          <div
+            class="logo flex items-center justify-center md:justify-evenly shrink-0"
+          >
+            <img
+              src="../../assets/category-assets/logonew.png"
+              alt="logo"
+              class="w-35 h-auto"
+            />
+            <div class="ms-3 relative hidden md:flex group">
+              <!-- Category Button -->
+              <a
+                href="#"
+                class="flex items-center gap-2 text-white hover:text-accent"
+              >
+                <span class="text-sm">Category</span>
+    
+                <img
+                  src="../../assets/category-assets/down-arrow.png"
+                  alt="arrow"
+                  class="w-4 h-4 invert transition-transform duration-300 group-hover:rotate-180"
+                />
+              </a>
+    
+              <!-- Dropdown -->
+              <div class="absolute left-0 top-full hidden group-hover:block z-50">
+                <div
+                  id="category-dropdown"
+                  class="w-64 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="search flex-1">
+            <div
+              class="search-container flex items-center h-11 bg-white rounded-full overflow-hidden border border-gray-300 shadow-sm"
+            >
+              <!-- Search Input -->
+              <div class="search-input flex-1 px-5">
+                <input
+                  id="search-input"
+                  type="text"
+                  placeholder="Try searching for Your Fav Items"
+                  class="w-full h-full text-sm text-gray-700 placeholder:text-gray-400 outline-none"
+                />
+              </div>
+    
+              <!-- Search Button -->
+              <button
+                id="search-btn"
+                class="search-btn flex items-center justify-center w-14 cursor-pointer h-full bg-accent hover:bg-accent-hover transition-colors"
+              >
+                <img
+                  src="../../assets/category-assets/search.png"
+                  alt="Search"
+                  class="w-5 h-5 invert"
+                />
+              </button>
+            </div>
+          </div>
+          <div
+            class="flex justify-center rewards shrink-0 text-white text-sm items-center gap-6"
+          >
+            <a href="./wishlist.html" class=" relative flex items-center gap-2 hover:text-accent group">
+              <svg
+                class="w-5 h-5 stroke-current"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+                />
+              </svg>
+              <span
+              id="wishlist-count"
+              class="hidden absolute -top-2 -right-2 bg-accent text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-semibold"
+            >
+            </span>
+              <span class="hidden lg:inline">Wishlist</span>
+            </a>
+            <a href="./cart.html" class="flex items-center gap-2 hover:text-accent group">
+      <div class="relative flex">
+        <svg
+        class="w-5 h-5 stroke-current"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2"
+      >
+        <circle cx="9" cy="20" r="1" />
+        <circle cx="18" cy="20" r="1" />
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H7"
+        />
+      </svg>
+    
+      <span class="hidden lg:inline">Cart</span>
+      <span
+      id="cart-count"
+      class="absolute -top-2 -right-2 bg-accent text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
+    >
+      0
+    </span>
+      </div>
+            </a>
+    
+            <a href="#" class="flex items-center gap-2 hover:text-accent group">
+              <svg
+                class="w-5 h-5 stroke-current"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20 21a8 8 0 0 0-16 0"
+                />
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+    
+              <span class="hidden lg:inline">Account</span>
+            </a>
+          </div>
+        </div>
+      </header>
+      <!--header ends-->
+    </div>
+
+    <!-- Category Carousel -->
+    <section
+      id="category-carousel"
+      class="border-b border-border bg-background py-5"
+    >
+      <div class="container-custom">
+        <div
+          class="flex gap-3 items-center justify-evenly overflow-hidden whitespace-nowrap scrollbar-hide"
+        >
+          <!-- Category -->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/3.-clothing.png"
+                alt="clothing"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Clothing
+            </span>
+          </a>
+
+          <!-- Beauty -->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/beauty.png"
+                alt="Beauty"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Beauty
+            </span>
+          </a>
+
+          <!-- Accessories-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/accessories1762370411256.png"
+                alt="Electronics"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Accessories
+            </span>
+          </a>
+
+          <!-- Fav -->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/favorties.png"
+                alt="Home"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Favourites
+            </span>
+          </a>
+
+          <!-- hot deals-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/hot-deals.png"
+                alt="hotDeals"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Hot Deals
+            </span>
+          </a>
+
+          <!-- in-stores-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/in-store.svg"
+                alt="Sports"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              In-stores
+            </span>
+          </a>
+
+          <!-- experiences-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/experiences.png"
+                alt="Travel"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Experiences
+            </span>
+          </a>
+
+          <!-- Subscription-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/subscription.png"
+                alt="Gaming"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              Subscription
+            </span>
+          </a>
+
+          <!--All-stores-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/all-stores.png"
+                alt="Gaming"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              All-stores
+            </span>
+          </a>
+
+          <!--new stores-->
+          <a href="#" class="flex flex-col items-center gap-2 shrink-0 group">
+            <div
+              class="w-14 h-14 rounded-full bg-surface border border-border shadow-sm flex items-center justify-center transition-all duration-300 group-hover:bg-secondary group-hover:scale-105"
+            >
+              <img
+                src="../../assets/category-assets/new-stores.png"
+                alt="Gaming"
+                class="w-8 h-8"
+              />
+            </div>
+
+            <span
+              class="text-xs text-text-primary font-medium group-hover:text-accent"
+            >
+              New Stores
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <main>
+      <!-- Hero Banner -->
+      <section
+        id="hero-banner"
+        class="bg-background h-auto sm:h-[150px] md:h-100 py-3 md:py-6 border-b border-border"
+      >
+        <div class="container-custom">
+          <div
+            class="relative overflow-hidden rounded-3xl shadow-lg"
+            id="hero-slider"
+          >
+            <!-- Slides -->
+            <div
+              id="slides"
+              class="flex transition-transform duration-700 ease-in-out"
+            >
+              <!-- Slide 1 -->
+              <div class="min-w-full bg-primary flex items-center">
+                <div class="w-full lg:w-1/2 p-4 lg:p-14">
+                  <h2
+                    class="text-2xl md:text-4xl lg:text-6xl font-bold text-white mt-2"
+                  >
+                    Summer Sale
+                  </h2>
+
+                  <p class="text-accent text-2xl md:text-3xl font-bold md:mt-3">
+                    Up to 70% OFF
+                  </p>
+
+                  <p class="text-gray-300 mt-5">
+                    Discover amazing products from your favorite stores.
+                  </p>
+
+                  <button
+                    class="mt-8 px-7 py-3 rounded-full bg-accent hover:bg-accent-hover transition text-white font-semibold cursor-pointer"
+                  >
+                    Shop Now
+                  </button>
+                </div>
+
+                <div
+                  class="w-full h-full lg:w-1/2 overflow-hidden rounded-l-3xl"
+                >
+                  <img
+                    src="../../assets/category-assets/slider-4.avif"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="min-w-full bg-primary flex items-center">
+                <div class="w-full lg:w-1/2 p-4 lg:p-14">
+                  <h2
+                    class="text-2xl md:text-4xl lg:text-6xl font-bold text-white mt-3"
+                  >
+                    Latest Gadgets
+                  </h2>
+
+                  <p class="text-accent text-2xl md:text-3xl font-bold md:mt-3">
+                    Starting at $99
+                  </p>
+
+                  <p class="text-gray-300 mt-5">
+                    Phones, laptops, gaming and more.
+                  </p>
+
+                  <button
+                    class="mt-8 px-7 py-3 rounded-full bg-accent hover:bg-accent-hover transition text-white font-semibold cursor-pointer"
+                  >
+                    Explore
+                  </button>
+                </div>
+
+                <div
+                  class="w-full h-full lg:w-1/2 overflow-hidden rounded-l-3xl"
+                >
+                  <img
+                    src="../../assets/category-assets/slider-3.avif"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="min-w-full bg-primary flex items-center">
+                <div class="w-full lg:w-1/2 p-4 lg:p-14">
+                  <h2
+                    class="text-2xl md:text-4xl lg:text-6xl font-bold text-white mt-3"
+                  >
+                    Trending Styles
+                  </h2>
+
+                  <p class="text-accent text-2xl md:text-3xl font-bold md:mt-3">
+                    Buy 2 Get 1
+                  </p>
+
+                  <p class="text-gray-300 mt-5">
+                    Upgrade your wardrobe with top brands.
+                  </p>
+
+                  <button
+                    class="mt-8 px-7 py-3 rounded-full bg-accent hover:bg-accent-hover transition text-white font-semibold cursor-pointer"
+                  >
+                    Discover
+                  </button>
+                </div>
+
+                <div
+                  class="w-full h-full lg:w-1/2 overflow-hidden rounded-l-3xl"
+                >
+                  <img
+                    src="../../assets/category-assets/slider-2.avif"
+                    class="w-full h-full object-cover"
+                    alt=""
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Previous -->
+            <button
+              id="prev"
+              class="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow flex items-center justify-center text-xl"
+            >
+              ❮
+            </button>
+
+            <!-- Next -->
+            <button
+              id="next"
+              class="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/90 hover:bg-white shadow flex items-center justify-center text-xl"
+            >
+              ❯
+            </button>
+
+            <!-- Dots -->
+            <div class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3">
+              <span
+                class="dot w-3 h-3 rounded-full bg-accent cursor-pointer"
+              ></span>
+
+              <span
+                class="dot w-3 h-3 rounded-full bg-white/60 cursor-pointer"
+              ></span>
+
+              <span
+                class="dot w-3 h-3 rounded-full bg-white/60 cursor-pointer"
+              ></span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Trending Picks -->
+      <section
+        id="trending-picks"
+        class="py-12 bg-background border-b border-border"
+      >
+        <div class="container-custom mt-5">
+          <!-- Section Header -->
+          <div class="flex items-center justify-between mb-8">
+            <div>
+              <h2
+                id="products-heading"
+                class="text-3xl font-bold text-text-primary"
+              >
+                Trending Picks
+              </h2>
+
+              <p class="text-text-secondary mt-2">
+                Popular products everyone is shopping for.
+              </p>
+            </div>
+
+            <a
+              href="./products.html"
+              class="text-accent font-medium hover:text-accent-hover transition"
+            >
+              View All →
+            </a>
+          </div>
+
+          <!------------------------ Products -->
+          <div
+            id="products-container"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
+          >
+            <!--products card-->
+          </div>
+        </div>
+      </section>
+
+      <!-- Top Stores -->
+      <section
+        id="top-stores"
+        class="py-12 border-b border-border bg-background"
+      >
+        <div class="container-custom">
+          <!-- Heading -->
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold">Top Stores</h2>
+
+            <a href="#" class="text-accent hover:text-accent-hover font-medium">
+              View All →
+            </a>
+          </div>
+
+          <!-- Stores -->
+          <div
+            id="stores-container"
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 lg:grid-cols-7 gap-6"
+          >
+            <!-- Store -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Discover More -->
+      <section
+        id="discover-more"
+        class="py-12 border-b border-border bg-background"
+      >
+        <div class="container-custom">
+          <!-- Section Heading -->
+          <div class="flex items-center justify-between mb-8">
+            <h2 class="text-3xl font-bold text-text-primary">
+              Discover VendorHub Stores
+            </h2>
+          </div>
+
+          <!-- Categories -->
+          <div
+            class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-8"
+          >
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/food.png"
+                    alt="Fashion"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Food
+                </span>
+              </a>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/electronics.png"
+                    alt="Electronics"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Electronics
+                </span>
+              </a>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/makeup.png"
+                    alt="Beauty"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Beauty
+                </span>
+              </a>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/home.png"
+                    alt="Home"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Home
+                </span>
+              </a>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/travel.png"
+                    alt="Travel"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Travel
+                </span>
+              </a>
+            </div>
+
+            <!-- Category -->
+            <div>
+              <a href="#" class="group flex flex-col items-center">
+                <div class="w-full h-full flex items-center justify-center">
+                  <img
+                    src="../../assets/category-assets/clothing.png"
+                    alt="Sports"
+                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
+
+                <span
+                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
+                >
+                  Clothing
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-primary text-white pt-14 pb-6">
+      <div class="container-custom">
+        <!-- Top Footer -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-white/20 pb-10"
+        >
+          <!-- Logo -->
+          <div>
+            <img
+              src="../assets/category-assets/logonew.png"
+              alt="VendorHub"
+              class="w-40"
+            />
+
+            <p class="mt-5 text-sm text-gray-300 leading-6">
+              Shop smarter with trusted brands, exclusive deals, and a rewarding
+              shopping experience.
+            </p>
+          </div>
+
+          <!-- Shop -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Shop</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="#" class="hover:text-accent transition">Categories</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition"
+                  >Trending Picks</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition">Top Stores</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition">Deals</a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Company</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="#" class="hover:text-accent transition">About Us</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition">Careers</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition"
+                  >Become a Vendor</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition"
+                  >Privacy Policy</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Support</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="#" class="hover:text-accent transition">Help Center</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-accent transition">Contact Us</a>
+              </li>
+              <li><a href="#" class="hover:text-accent transition">FAQs</a></li>
+              <li>
+                <a href="#" class="hover:text-accent transition"
+                  >Terms & Conditions</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6 pt-6"
+        >
+          <p class="text-sm text-gray-400">
+            © 2026 VendorHub. All rights reserved.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-5">
+            <!-- Facebook -->
+            <a href="#" class="hover:text-accent transition">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M22 12A10 10 0 1010.4 21.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.5.7-1.5 1.5v1.8H16l-.4 2.9h-2.2v7A10 10 0 0022 12z"
+                />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a href="#" class="hover:text-accent transition">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.2A4.8 4.8 0 1016.8 12 4.8 4.8 0 0012 7.2zm6.2-.9a1.2 1.2 0 101.2 1.2 1.2 1.2 0 00-1.2-1.2zM12 9a3 3 0 11-3 3 3 3 0 013-3z"
+                />
+              </svg>
+            </a>
+
+            <!-- X -->
+            <a href="#" class="hover:text-accent transition">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.5 22H2.9l7.3-8.4L1 2h6.3l4.3 5.7L18.9 2z"
+                />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a href="#" class="hover:text-accent transition">
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.7 15.5V8.5l6.1 3.5-6.1 3.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script type="module" src="../js/logInDashboard.js"></script>
+  </body>
+</html>
