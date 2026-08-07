@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Product Details</title>
+    <title>My Orders | VendorHub</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -11,9 +12,13 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="../css/output.css" />
   </head>
-  <body>
+
+  <body >
+
+    
     <!--header start-->
     <header
       id="header"
@@ -173,18 +178,23 @@
     </header>
     <!--header ends-->
 
-    <!--product detail section starts-->
-    <section class="py-6 md:py-10">
-      <div id="product-details-container" class="container-custom"></div>
-    </section>
-    <!--product detail section starts-->
+    <main class="container-custom py-10">
 
-    <!--toast container-->
-    <div
-      id="toast"
-      class="fixed bottom-6 right-6 translate-y-20 opacity-0 pointer-events-none bg-accent text-white px-5 py-3 rounded-xl shadow-xl transition-all duration-300 z-[9999]"
-    ></div>
 
-    <script type="module" src="../js/productDetails.js"></script>
+      <section
+        id="orders-container"
+        class="space-y-8"
+      >
+
+      </section>
+
+    </main>
+
+   
+
+ 
+
+    <script type="module" src="../js/orders.js"></script>
+
   </body>
 </html>

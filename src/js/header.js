@@ -40,3 +40,22 @@ export function updateWishlistBadge() {
   }
 }
 updateWishlistBadge();
+
+/////logout
+const accountBtn = document.getElementById("account-btn");
+const accountDropdown = document.getElementById("account-dropdown");
+
+if (accountBtn && accountDropdown) {
+  accountBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    accountDropdown.classList.toggle("hidden");
+  });
+
+  document.addEventListener("click", () => {
+    accountDropdown.classList.add("hidden");
+  });
+
+  accountDropdown.addEventListener("click", (e) => {
+    e.stopPropagation();
+  });
+}

@@ -25,34 +25,13 @@
         <div
           class="logo flex items-center justify-center md:justify-evenly shrink-0"
         >
-          <img
-            src="../../assets/category-assets/logonew.png"
-            alt="logo"
-            class="w-35 h-auto"
-          />
-          <div class="ms-3 relative hidden md:flex group">
-            <!-- Category Button -->
-            <!-- <a
-              href="#"
-              class="flex items-center gap-2 text-white hover:text-accent"
-            >
-              <span class="text-sm">Category</span>
-
-              <img
-                src="../../assets/category-assets/down-arrow.png"
-                alt="arrow"
-                class="w-4 h-4 invert transition-transform duration-300 group-hover:rotate-180"
-              />
-            </a> -->
-
-            <!-- Dropdown -->
-            <div class="absolute left-0 top-full hidden group-hover:block z-50">
-              <div
-                id="category-dropdown"
-                class="w-64 mt-2 bg-white rounded-2xl shadow-xl border border-border overflow-hidden"
-              ></div>
-            </div>
-          </div>
+          <a href="products.html">
+            <img
+              src="../../assets/category-assets/logonew.png"
+              alt="VendorHub Logo"
+              class="w-35 h-auto cursor-pointer"
+            />
+          </a>
         </div>
         <div class="search flex-1">
           <div
@@ -138,31 +117,57 @@
             </div>
           </a>
 
-          <a href="#" class="flex items-center gap-2 hover:text-accent group">
-            <svg
-              class="w-5 h-5 stroke-current"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="2"
+          <div class="relative">
+            <!-- Account Button -->
+            <button
+              id="account-btn"
+              class="flex items-center gap-2 hover:text-accent transition cursor-pointer"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M20 21a8 8 0 0 0-16 0"
-              />
-              <circle
-                cx="12"
-                cy="8"
-                r="4"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+              <svg
+                class="w-5 h-5 stroke-current"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20 21a8 8 0 0 0-16 0"
+                />
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
 
-            <span class="hidden lg:inline">Account</span>
-          </a>
+              <span class="hidden lg:inline">Account</span>
+            </button>
+
+            <!-- Dropdown -->
+            <div
+              id="account-dropdown"
+              class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl border  border-border shadow-xl overflow-hidden z-50"
+            >
+              <a
+                href="orders.html"
+                class="block px-4 py-3 text-text-primary  transition"
+              >
+                 My Orders
+              </a>
+
+              <button
+                id="logout-btn"
+                class="w-full text-left px-4 py-3 text-red-600 hover:bg-red-600  hover:text-white transition cursor-pointer"
+              >
+                 Logout
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </header>

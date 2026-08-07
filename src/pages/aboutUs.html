@@ -1,0 +1,634 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About us</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/output.css" />
+  </head>
+  <body>
+    <!--header start-->
+    <header
+      id="header"
+      class="sticky top-0 z-50 bg-primary text-text-white py-4 border-b border-border shadow-md"
+    >
+      <div
+        class="container-custom h-full flex flex-col md:flex-row md:items-center gap-5"
+      >
+        <div
+          class="logo flex items-center justify-center md:justify-evenly shrink-0"
+        >
+          <a href="products.html">
+            <img
+              src="../../assets/category-assets/logonew.png"
+              alt="VendorHub Logo"
+              class="w-35 h-auto cursor-pointer"
+            />
+          </a>
+        </div>
+        <div class="search flex-1">
+          <div
+            class="search-container flex items-center h-11 bg-white rounded-full overflow-hidden border border-gray-300 shadow-sm"
+          >
+            <!-- Search Input -->
+            <div class="search-input flex-1 px-5">
+              <input
+                id="search-input"
+                type="text"
+                placeholder="Try searching for Your Fav Items"
+                class="w-full h-full text-sm text-gray-700 placeholder:text-gray-400 outline-none"
+              />
+            </div>
+
+            <!-- Search Button -->
+            <button
+              id="search-btn"
+              class="search-btn flex items-center justify-center w-14 cursor-pointer h-full bg-accent hover:bg-accent-hover transition-colors"
+            >
+              <img
+                src="../../assets/category-assets/search.png"
+                alt="Search"
+                class="w-5 h-5 invert"
+              />
+            </button>
+          </div>
+        </div>
+        <div
+          class="flex justify-center rewards shrink-0 text-white text-sm items-center gap-6"
+        >
+          <a
+            href="./wishlist.html"
+            class="relative flex items-center gap-2 hover:text-accent group"
+          >
+            <svg
+              class="w-5 h-5 stroke-current"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="2"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 1 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"
+              />
+            </svg>
+            <span
+              id="wishlist-count"
+              class="hidden absolute -top-2 -right-2 bg-accent text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-semibold"
+            >
+            </span>
+            <span class="hidden lg:inline">Wishlist</span>
+          </a>
+          <a href="#" class="flex items-center gap-2 hover:text-accent group">
+            <div class="relative flex">
+              <svg
+                class="w-5 h-5 stroke-current"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <circle cx="9" cy="20" r="1" />
+                <circle cx="18" cy="20" r="1" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H7"
+                />
+              </svg>
+
+              <span class="hidden lg:inline">Cart</span>
+              <span
+                id="cart-count"
+                class="absolute -top-2 -right-2 bg-accent text-white text-xs w-5 h-5 rounded-full flex items-center justify-center"
+              >
+                0
+              </span>
+            </div>
+          </a>
+
+          <div class="relative">
+            <!-- Account Button -->
+            <button
+              id="account-btn"
+              class="flex items-center gap-2 hover:text-accent transition cursor-pointer"
+            >
+              <svg
+                class="w-5 h-5 stroke-current"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M20 21a8 8 0 0 0-16 0"
+                />
+                <circle
+                  cx="12"
+                  cy="8"
+                  r="4"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+
+              <span class="hidden lg:inline">Account</span>
+            </button>
+
+            <!-- Dropdown -->
+            <div
+              id="account-dropdown"
+              class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl border border-border shadow-xl overflow-hidden z-50"
+            >
+              <a
+                href="orders.html"
+                class="block px-4 py-3 text-text-primary transition"
+              >
+                My Orders
+              </a>
+
+              <button
+                id="logout-btn"
+                class="w-full text-left px-4 py-3 text-red-600 hover:bg-red-600 hover:text-white transition cursor-pointer"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!--header ends-->
+
+    <main class="bg-background">
+      <!-- Hero -->
+
+      <section class="py-10 sm:py-14 lg:py-28">
+        <div class="container-custom">
+          <div class="max-w-3xl mx-auto text-center">
+            <p
+              class="text-3xl sm:text-4xl  font-bold uppercase tracking-[0.2em] text-accent"
+            >
+              About VendorHub
+            </p>
+
+            <h1
+              class="mt-5 text-2xl sm:text-3xl font-semibold leading-tight text-text-primary mb-4"
+            >
+              Your marketplace for
+              <span class="text-primary">better shopping.</span>
+            </h1>
+
+            <p
+              class="mt-7 text-base sm:text-lg leading-8 text-text-secondary max-w-2xl mx-auto"
+            >
+              VendorHub brings trusted vendors, quality products, and great
+              deals together in one simple and convenient shopping experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who We Are -->
+
+      <section class="bg-white py-10 sm:py-14">
+        <div class="container-custom">
+          <!-- Highlight Card -->
+          <div class="bg-primary rounded-3xl p-8 sm:p-10 lg:p-12">
+            <div
+              class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center"
+            >
+              <svg
+                class="w-7 h-7 text-accent"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 3h18v18H3z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8 8h8M8 12h8M8 16h5"
+                />
+              </svg>
+            </div>
+
+            <h3 class="mt-7 text-2xl sm:text-3xl font-semibold text-white">
+              Everything you need, all in one place.
+            </h3>
+
+            <p class="mt-5 text-gray-300 leading-7 text-sm sm:text-base">
+              Browse products, compare your options, save your favorites, choose
+              your preferred delivery option, and manage your orders through one
+              seamless shopping experience.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission -->
+
+      <section class="py-10 sm:py-14">
+        <div class="container-custom">
+          <div class="max-w-3xl mx-auto text-center">
+            <p
+              class="text-2xl sm:text-4xl font-bold uppercase tracking-[0.2em] text-accent"
+            >
+              Our Mission
+            </p>
+
+            <h2
+              class="mt-4 text-2xl sm:text-3xl font-semibold text-text-primary mb-4"
+            >
+              Making every shopping journey simpler.
+            </h2>
+
+            <p class="mt-7 text-text-secondary text-sm sm:text-base leading-8">
+              We want to create a marketplace where customers can shop with
+              confidence and vendors can connect with more people. Every part of
+              VendorHub is designed with convenience, discovery, and a better
+              shopping experience in mind.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why VendorHub -->
+
+      <section class="bg-white py-10 sm:py-14">
+        <div class="container-custom">
+          <div class="max-w-2xl mb-12">
+            <p
+              class="text-2xl sm:text-4xl font-bold uppercase tracking-[0.2em] text-accent mb-6 text-center"
+            >
+              Why VendorHub?
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Card 1 -->
+            <article class="rounded-2xl border border-border bg-background">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4"
+                  />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3l7 4v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V7l7-4z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="mt-6 text-lg font-semibold text-text-primary px-4">
+                Trusted Vendors
+              </h3>
+
+              <p class="mt-3 text-sm text-text-secondary leading-6 px-4 py-4">
+                Discover products from vendors and brands you can shop with
+                confidence.
+              </p>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="rounded-2xl border border-border p-7 bg-background">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 2v20M17 6H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H7"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="mt-6 text-lg font-semibold text-text-primary px-4">
+                Great Deals
+              </h3>
+
+              <p class="mt-3 text-sm text-text-secondary leading-6 px-4 py-4">
+                Find competitive prices, special offers, and exciting products
+                across different categories.
+              </p>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="rounded-2xl border border-border p-7 bg-background">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 12h18M12 3v18"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="mt-6 text-lg font-semibold text-text-primary px-4">
+                Easy Shopping
+              </h3>
+
+              <p class="mt-3 text-sm text-text-secondary leading-6 px-4 py-4">
+                Search, compare, save favorites, and manage your purchases
+                without unnecessary complexity.
+              </p>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="rounded-2xl border border-border p-7 bg-background">
+              <div
+                class="w-12 h-12 rounded-xl bg-primary flex items-center justify-center"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 3l2.8 5.7 6.2.9-4.5 4.4 1.1 6.2-5.6-3-5.6 3 1.1-6.2L3 9.6l6.2-.9L12 3z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="mt-6 text-lg font-semibold text-text-primary px-4">
+                Better Experience
+              </h3>
+
+              <p class="mt-3 text-sm text-text-secondary px-4 py-4 leading-6">
+                From browsing to checkout, every step is designed to feel simple
+                and convenient.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+
+      <section class="py-10  sm:py-14">
+        <div class="container-custom">
+          <div
+            class="bg-primary rounded-3xl pt-3 pb-3 p-4 py-14 sm:px-12 sm:py-16 text-center"
+          >
+            <h2 class="text-3xl sm:text-4xl font-semibold text-white">
+              Ready to explore VendorHub?
+            </h2>
+
+            <p
+              class="mt-3 max-w-xl mx-auto text-gray-300 leading-7 text-sm sm:text-base"
+            >
+              Discover products, find great deals, and enjoy a simpler way to
+              shop.
+            </p>
+
+            <a
+              href="products.html"
+              class="inline-flex items-center justify-center mt-4 px-5 sm:px-7 py-2 sm:py-3 rounded-full bg-accent text-white font-medium hover:bg-accent-hover transition"
+            >
+              Explore Products
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer" class="bg-primary text-white pt-14 pb-6">
+      <div class="container-custom">
+        <!-- Top Footer -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-white/20 pb-10"
+        >
+          <!-- Logo -->
+          <div>
+            <img
+              src="../../assets/category-assets/logonew.png"
+              alt="VendorHub"
+              class="w-30"
+            />
+
+            <p class="mt-5 text-sm text-gray-300 leading-6">
+              Shop smarter with trusted brands, exclusive deals, and a rewarding
+              shopping experience.
+            </p>
+          </div>
+
+          <!-- Shop -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Shop</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="products.html" class="hover:text-accent transition">
+                  Products
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="products.html#categories"
+                  class="hover:text-accent transition"
+                >
+                  Categories
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="products.html#top-picks"
+                  class="hover:text-accent transition"
+                >
+                  Trending Picks
+                </a>
+              </li>
+
+              <li>
+                <a
+                  href="products.html#deals"
+                  class="hover:text-accent transition"
+                >
+                  Deals
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Company -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Company</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="about.html" class="hover:text-accent transition">
+                  About Us
+                </a>
+              </li>
+
+              <li>
+                <a href="careers.html" class="hover:text-accent transition">
+                  Careers
+                </a>
+              </li>
+
+              <li>
+                <a href="vendor.html" class="hover:text-accent transition">
+                  Become a Vendor
+                </a>
+              </li>
+
+              <li>
+                <a href="privacy.html" class="hover:text-accent transition">
+                  Privacy Policy
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Support -->
+          <div>
+            <h3 class="text-lg font-semibold mb-5">Support</h3>
+
+            <ul class="space-y-3 text-sm text-gray-300">
+              <li>
+                <a href="aboutUs.html" class="hover:text-accent transition">
+                  About s
+                </a>
+              </li>
+
+              <li>
+                <a href="contact.html" class="hover:text-accent transition">
+                  Contact Us
+                </a>
+              </li>
+
+              <li>
+                <a href="faq.html" class="hover:text-accent transition">
+                  FAQs
+                </a>
+              </li>
+
+              <li>
+                <a href="terms.html" class="hover:text-accent transition">
+                  Terms & Conditions
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Footer -->
+        <div
+          class="flex flex-col md:flex-row justify-between items-center gap-6 pt-6"
+        >
+          <p class="text-sm text-gray-400">
+            © 2026 VendorHub. All rights reserved.
+          </p>
+
+          <!-- Social Icons -->
+          <div class="flex items-center gap-5">
+            <!-- Facebook -->
+            <a
+              href="https://facebook.com"
+              class="hover:text-accent transition"
+              target="_blank"
+            >
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M22 12A10 10 0 1010.4 21.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.5.7-1.5 1.5v1.8H16l-.4 2.9h-2.2v7A10 10 0 0022 12z"
+                />
+              </svg>
+            </a>
+
+            <!-- Instagram -->
+            <a
+              href="https://instagram.com"
+              class="hover:text-accent transition"
+              target="_blank"
+            >
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.2A4.8 4.8 0 1016.8 12 4.8 4.8 0 0012 7.2zm6.2-.9a1.2 1.2 0 101.2 1.2 1.2 1.2 0 00-1.2-1.2zM12 9a3 3 0 11-3 3 3 3 0 013-3z"
+                />
+              </svg>
+            </a>
+
+            <!-- X -->
+            <a
+              href="https://twitter.com"
+              class="hover:text-accent transition"
+              target="_blank"
+            >
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.5 22H2.9l7.3-8.4L1 2h6.3l4.3 5.7L18.9 2z"
+                />
+              </svg>
+            </a>
+
+            <!-- YouTube -->
+            <a
+              href="https://youtube.com"
+              class="hover:text-accent transition"
+              target="_blank"
+            >
+              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+                <path
+                  d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.7 15.5V8.5l6.1 3.5-6.1 3.5z"
+                />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
