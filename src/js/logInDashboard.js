@@ -1,4 +1,4 @@
-import { stores, products, IMAGE_PATH, categories } from "./data.js";
+import { stores, products, IMAGE_PATH, categories } from './data.js';
 import { updateCartBadge ,updateWishlistBadge} from "./header.js";
 const productsContainer = document.getElementById("products-container");
 const storesContainer = document.getElementById("stores-container");
