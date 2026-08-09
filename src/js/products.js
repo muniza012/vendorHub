@@ -143,6 +143,26 @@ sortProducts.addEventListener("change", () => {
   updateProducts();
 });
 
+
+const categoryFilter = document.getElementById("category-filter");
+
+// Populate mobile category filter
+categories.forEach((category) => {
+  const option = document.createElement("option");
+
+  option.value = category.name;
+  option.textContent = category.name;
+
+  categoryFilter.appendChild(option);
+});
+
+// Mobile category filter
+categoryFilter.addEventListener("change", () => {
+  currentCategory = categoryFilter.value || "All";
+
+  updateProducts();
+});
+
 //////////////Products refactor
 
 function updateProducts() {
@@ -191,3 +211,6 @@ function updateProducts() {
 
   renderProducts(filteredProducts);
 }
+
+
+

@@ -47,6 +47,32 @@
               />
             </a>
           </div>
+          <!-- Category Button -->
+
+          <div class="relative group hidden md:flex">
+            <a
+              href="#"
+              class="flex items-center gap-2 text-white hover:text-accent transition"
+            >
+              <span class="text-sm">Category</span>
+          
+              <img
+                src="../../assets/category-assets/down-arrow.png"
+                alt="arrow"
+                class="w-4 h-4 invert transition-transform duration-300 group-hover:rotate-180"
+              />
+            </a>
+          
+            <div
+              class="absolute left-0 top-full pt-3 hidden group-hover:block z-50"
+            >
+              <div
+                id="category-dropdown"
+                class="w-64 bg-white rounded-2xl shadow-xl border border-border overflow-hidden py-2"
+              ></div>
+            </div>
+          </div>
+
           <div class="search flex-1">
             <div
               class="search-container flex items-center h-11 bg-white rounded-full overflow-hidden border border-gray-300 shadow-sm"
@@ -167,12 +193,12 @@
                 id="account-dropdown"
                 class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl border  border-border shadow-xl overflow-hidden z-50"
               >
-                <a
-                  href="orders.html"
-                  class="block px-4 py-3 text-text-primary  transition"
-                >
-                   My Orders
-                </a>
+              <a
+              href="orders.html"
+              class="block px-4 py-3 text-text-primary hover:bg-background hover:text-accent transition"
+            >
+              My Orders
+            </a>
   
                 <button
                   id="logout-btn"
