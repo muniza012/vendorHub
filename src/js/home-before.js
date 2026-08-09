@@ -1,4 +1,4 @@
-import {auth,createUserWithEmailAndPassword}from "../firebase.config.js"
+// import {auth,createUserWithEmailAndPassword}from "../firebase.config.js"
 const modal = document.getElementById("signUpModal");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -28,35 +28,36 @@ window.onclick = function(event) {
   }
 }
 function switchRole(role) {
-  const card = document.querySelector('.login-card');
-  const customerTab = document.getElementById('customerTab');
-  const sellerTab = document.getElementById('sellerTab');
-  const userRoleInput = document.getElementById('userRole');
-  const formTitle = document.getElementById('formTitle');
-  const formSubtitle = document.getElementById('formSubtitle');
-  const submitBtn = document.getElementById('submitBtn');
+  window.location.href="./sellerlogin.html"}
+  // const card = document.querySelector('.login-card');
+  // const customerTab = document.getElementById('customerTab');
+  // const sellerTab = document.getElementById('sellerTab');
+  // const userRoleInput = document.getElementById('userRole');
+  // const formTitle = document.getElementById('formTitle');
+  // const formSubtitle = document.getElementById('formSubtitle');
+  // const submitBtn = document.getElementById('submitBtn');
 
   // Update backend form role value
-  userRoleInput.value = role;
+//   userRoleInput.value = role;
 
-  if (role === 'customer') {
-    customerTab.classList.add('active');
-    sellerTab.classList.remove('active');
-    card.classList.remove('seller-mode');
+//   if (role === 'customer') {
+//     customerTab.classList.add('active');
+//     sellerTab.classList.remove('active');
+//     card.classList.remove('seller-mode');
 
-    formTitle.textContent = "Welcome Back!";
-    formSubtitle.textContent = "Log in to manage your orders and wishlist.";
-    submitBtn.textContent = "Log In as Customer";
-  } else {
-    sellerTab.classList.add('active');
-    customerTab.classList.remove('active');
-    card.classList.add('seller-mode');
+//     formTitle.textContent = "Welcome Back!";
+//     formSubtitle.textContent = "Log in to manage your orders and wishlist.";
+//     submitBtn.textContent = "Log In as Customer";
+//   } else {
+//     sellerTab.classList.add('active');
+//     customerTab.classList.remove('active');
+//     card.classList.add('seller-mode');
 
-    formTitle.textContent = "Vendor Dashboard Sign In";
-    formSubtitle.textContent = "Access sales analytics, inventory, and payout management.";
-    submitBtn.textContent = "Log In as Seller";
-  }
-}
+//     formTitle.textContent = "Vendor Dashboard Sign In";
+//     formSubtitle.textContent = "Access sales analytics, inventory, and payout management.";
+//     submitBtn.textContent = "Log In as Seller";
+//   }
+// }
 
 function handleLogin(event) {
   event.preventDefault();
@@ -71,3 +72,13 @@ function handleLogin(event) {
     password
   });
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const cards = document.querySelectorAll(".review-card");
+
+  // Optional subtle click interaction logging or animation logic
+  cards.forEach((card, index) => {
+    card.addEventListener("click", () => {
+      console.log(`Review card ${index + 1} clicked`);
+    });
+  });
+});

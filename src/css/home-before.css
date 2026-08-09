@@ -1,39 +1,22 @@
-:root{
-    /* (Navbar, Footer, Sidebar) */
-    --primary: #003049 ;
-    /* (Hover backgrounds, cards, sections) */
---secondary: #B0C8D7 ;
-/* (CTA Buttons, Add to Cart, Create Shop) */
---accent: #F77F00 ;
-/* (Button Hover) */
---accent-hover: #D96D00 ;
-/* (Main page background) */
---background: #F8F9FA ;
-/* (Product cards, forms) */
---surface: #FFFFFF ;
-/* (Headings, prices, product names) */
---text-primary: #1F2937 ;
-/* (Descriptions, other text) */
---text-secondary: #6B7280 ;
-
---border: #E5E7EB;
-/* Font */
-  --font-poppins: "Poppins", sans-serif;
-}
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-}
-
+@import url("common.css");
 body {
   background-color: var(--background);
   color: var(--text-primary);
   overflow-x: hidden;
   font-family: var(--font-poppins);
 }
+:root {
+  /* Card Backgrounds */
+  --bg-dark-blue: #23225c;
+  --bg-light-blue: #dbebf5;
+  --bg-light-green: #d6f5bd;
+  --bg-light-pink: #fde2e9;
 
+  /* Text Colors */
+  --text-dark: #2d3748;
+  --text-muted-dark: #718096;
+  --text-light: #ffffff;
+  --text-muted-light: #cbd5e0;}
 /* -------------------------------------------------------------
    2. NAVIGATION BAR
 ------------------------------------------------------------- */
@@ -59,14 +42,9 @@ body {
 }
 
 .logo {
-    height:4em;
-    width: 6em;
-    background-position: cover;
-  font-size: 26px;
-  font-weight: 800;
-  color: var(--primary);
-  letter-spacing: -0.5px;
-  text-decoration: none;
+    height:auto;
+width: 110px;
+ cursor: pointer;
 }
 
 .nav-link {
@@ -252,18 +230,6 @@ body {
   z-index: 3;
 }
 
-.cashback-pill {
-  position: absolute;
-  top: -18px;
-  right: 20px;
-  background: var(--secondary);
-  color: var(--primary);
-  font-weight: 700;
-  font-size: 14px;
-  padding: 6px 14px;
-  border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
 
 .store-logo {
   width: 44px;
@@ -528,20 +494,19 @@ body {
 /* Tab Headers */
 .tab-header {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   background: var(--secondary);
 }
 
 .tab-btn {
-  flex: 1;
   padding: 16px;
   border: none;
-  background: transparent;
   font-size: 15px;
   font-weight: 600;
   color: var(--primary);
   cursor: pointer;
-  transition: all 0.3s ease;
-  opacity: 0.75;
 }
 
 .tab-btn.active {
@@ -635,7 +600,7 @@ h2 {
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.2s;
+  /* transition: background-color 0.2s; */
 }
 
 .submit-btn:hover {
@@ -655,4 +620,401 @@ h2 {
 
 .seller-mode .forgot-pass {
   color: var(--accent);
+}
+:root {
+  --primary: #003049;
+  --accent: #F77F00;
+  --font-poppins: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-poppins);
+}
+
+/* Container */
+.container-custom {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Footer Container */
+#footer {
+  background-color: var(--primary);
+  color: #ffffff;
+  padding-top: 3.5rem;   /* pt-14 */
+  padding-bottom: 1.5rem; /* pb-6 */
+}
+
+/* Top Footer Grid */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem; /* gap-10 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* border-white/20 */
+  padding-bottom: 2.5rem; /* pb-10 */
+}
+
+/* Logo & Description */
+.footer-logo {
+  width: 7.5rem; /* w-30 */
+}
+
+.footer-description {
+  margin-top: 1.25rem; /* mt-5 */
+  font-size: 0.875rem; /* text-sm */
+  color: #d1d5db; /* text-gray-300 */
+  line-height: 1.5rem; /* leading-6 */
+}
+
+/* Section Headings */
+.footer-heading {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600; /* font-semibold */
+  margin-bottom: 1.25rem; /* mb-5 */
+}
+
+/* Navigation Lists */
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* space-y-3 */
+}
+
+.footer-links a {
+  font-size: 0.875rem; /* text-sm */
+  color: #d1d5db; /* text-gray-300 */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+/* Bottom Footer Flex Layout */
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem; /* gap-6 */
+  padding-top: 1.5rem; /* pt-6 */
+}
+
+.footer-copyright {
+  font-size: 0.875rem; /* text-sm */
+  color: #9ca3af; /* text-gray-400 */
+}
+
+/* Social Media Icons */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem; /* gap-5 */
+}
+
+.social-icons a {
+  color: #ffffff;
+  transition: color 0.2s ease;
+}
+
+.social-icons a:hover {
+  color: var(--accent);
+}
+
+.social-icon {
+  width: 1.5rem; /* w-6 */
+  height: 1.5rem; /* h-6 */
+  fill: currentColor;
+}
+
+/* Responsive Media Queries (md Breakpoint: 768px) */
+@media (min-width: 768px) {
+  .footer-top {
+    grid-template-columns: repeat(4, 1fr); /* md:grid-cols-4 */
+  }
+
+  .footer-bottom {
+    flex-direction: row; /* md:flex-row */
+  }
+}
+/* review section css */
+/* Section Wrapper */
+.reviews-section {
+  padding: 80px 20px;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.75rem;
+  font-weight: 400;
+  color: #222;
+  margin-bottom: 50px;
+  letter-spacing: -0.5px;
+}
+
+/* Grid Layout */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* Common Card Base Styles */
+.review-card {
+  border-radius: 20px;
+  padding: 32px 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 380px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.review-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.review-quote {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+.card-footer {
+  margin-top: 30px;
+}
+
+.review-date {
+  display: block;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+/* Card 1 Variant (Dark Blue) */
+.card-dark {
+  background-color: var(--bg-dark-blue);
+  color: var(--text-light);
+}
+
+.card-dark .review-date {
+  color: var(--text-muted-light);
+}
+
+/* Card 2 Variant (Light Blue) */
+.card-blue {
+  background-color: var(--bg-light-blue);
+  color: var(--text-dark);
+}
+
+.card-blue .review-date {
+  color: var(--text-muted-dark);
+}
+
+/* Card 3 Variant (Light Green) */
+.card-green {
+  background-color: var(--bg-light-green);
+  color: var(--text-dark);
+}
+
+.card-green .review-date {
+  color: var(--text-muted-dark);
+}
+
+/* Card 4 Variant (Light Pink) */
+.card-pink {
+  background-color: var(--bg-light-pink);
+  color: var(--text-dark);
+}
+
+.card-pink .review-date {
+  color: var(--text-muted-dark);
+}
+
+/* Brand Logos Styling */
+.brand-logo {
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+.logo-cnbc {
+  font-size: 1.5rem;
+  color: #ffffff;
+}
+
+.logo-cnbc span {
+  font-weight: 900;
+}
+
+.logo-insider {
+  font-size: 1.35rem;
+  color: #000000;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+}
+
+.logo-tpg {
+  font-size: 1.3rem;
+  color: #1a1a1a;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.logo-tpg span {
+  font-weight: 400;
+}
+
+.tpg-icon {
+  background-color: #14b8a6;
+  color: #ffffff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.logo-realsimple {
+  font-size: 1.4rem;
+  color: #f95738;
+  font-weight: 800;
+}
+
+.logo-realsimple span {
+  font-weight: 400;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+}
+.scd-01,
+.scd-01 *,
+.scd-01 *::before,
+.scd-01 *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.scd-01 {
+  --accent: oklch(0.62 0.17 264);
+  font-family: 'Segoe UI',system-ui,sans-serif;
+  background: #eef0f4;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: 0 20px;
+}
+
+.scd-01__scene {
+  width: min(520px,100%);
+  margin: 0 auto;
+  padding: 14vh 0 20vh;
+}
+
+
+
+.scd-01__card {
+  position: sticky;
+  top: calc(90px + var(--i) * 16px);
+  height: 260px;
+  margin-bottom: 40px;
+  border-radius: 22px;
+  padding: 34px;
+  color: #fff;
+  background: linear-gradient(135deg,var(--accent),oklch(0.55 0.16 292));
+  box-shadow: 0 30px 60px -34px rgba(20,24,50,.7);
+  animation: scd-01-shrink linear both;
+  animation-timeline: view();
+  animation-range: exit;
+}
+
+.scd-01__card:nth-child(3) {
+  background: linear-gradient(135deg,oklch(0.66 0.15 200),oklch(0.6 0.16 250));
+}
+
+.scd-01__card:nth-child(4) {
+  background: linear-gradient(135deg,oklch(0.7 0.15 150),oklch(0.62 0.15 200));
+}
+
+.scd-01__card:nth-child(5) {
+  background: linear-gradient(135deg,oklch(0.72 0.16 60),oklch(0.64 0.17 30));
+}
+
+.scd-01__num {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  opacity: .7;
+}
+
+.scd-01__card h3 {
+  font-size: 30px;
+  font-weight: 800;
+  margin: 14px 0 10px;
+  letter-spacing: -.02em;
+}
+
+.scd-01__card p {
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 34ch;
+  opacity: .92;
+}
+
+
+
+@keyframes scd-01-shrink {
+  to {
+    transform: scale(.9);
+    filter: brightness(.72);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scd-01 {
+    width: 100%;
+    min-height: 100vh;
+    scroll-behavior: auto;
+  }
+
+  .scd-01__card {
+    animation: none;
+  }
 }
