@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>wishlist</title>
+  <title>Stores</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="../css/output.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/output.css" />
 </head>
 <body>
   <!--header start-->
@@ -184,23 +184,52 @@
     </div>
   </header>
   <!--header ends-->
-  
-  <section class="py-10">
 
+
+  <main class="py-12 sm:py-16">
     <div class="container-custom">
-
-        <!-- <h2 class="text-3xl font-bold mb-8 ">
-
-            My Wishlist
-
-        </h2> -->
-
-        <div id="wishlist-container"></div>
-
+  
+      <!-- Store Header -->
+      <section class="mb-10">
+        <div
+          id="store-header"
+          class=" border border-border rounded-2xl p-6 sm:p-8 bg-accent mb-4"
+        >
+          <!-- Filled dynamically by storeProducts.js -->
+        </div>
+      </section>
+  
+      <!-- Products -->
+      <section>
+        <div class="flex items-center justify-between gap-4 mb-6">
+          <h2
+            id="store-products-heading"
+            class="text-2xl sm:text-3xl font-bold text-text-primary"
+          >
+            Store Products
+          </h2>
+  
+          <a
+            href="stores.html"
+            class="text-sm font-medium text-accent hover:text-accent-hover transition"
+          >
+            ← All Stores
+          </a>
+        </div>
+  
+        <div
+          id="store-products-container"
+          class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6"
+        >
+          <!-- Products rendered by JavaScript -->
+        </div>
+      </section>
+  
     </div>
+  </main>
+  
+  <script type="module" src="../js/storeProducts.js"></script>
+  <script type="module" src="../js/header.js"></script>
 
-</section>
-<script type="module" src="../js/wishlist.js"></script>
-<script type="module" src="../js/header.js"></script>
 </body>
 </html>

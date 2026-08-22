@@ -1,6 +1,7 @@
 import { products, IMAGE_PATH, deliveryOptions } from "./data.js";
 import { showToast } from "./toast.js";
-import { updateCartBadge,updateWishlistBadge } from "./header.js";
+import { updateCartBadge, updateWishlistBadge } from "./header.js";
+import { setupProductDetailsAnimations } from "./dashboardAnimations.js";
 const productDetailsContainer = document.getElementById(
   "product-details-container",
 );
@@ -219,12 +220,12 @@ function renderProductDetails() {
 
 </div>
 
-<div class="mt-10 flex flex-wrap gap-4">
+<div class="mt-10 flex flex-wrap gap-4 flex-col sm:flex-row">
 
   <!-- Wishlist -->
   <button
   id="wishlist-btn"
-  class="w-14 h-14 flex items-center justify-center rounded-full border border-border hover:border-accent transition"
+  class="w-14 h-14 flex items-center justify-center rounded-full border border-border hover:border-accent transition cursor-pointer"
 >
   <svg
     id="wishlist-icon"
@@ -246,24 +247,9 @@ function renderProductDetails() {
   <!-- Add to Cart -->
   <button
     id="add-cart-btn"
-    class="flex-1 flex items-center justify-center gap-3 px-8 py-4 rounded-full bg-accent text-white font-medium hover:bg-accent-hover transition"
+    class="flex-1 flex items-center justify-center gap-3 px-6 py-2 rounded-full bg-accent text-white font-medium hover:bg-accent-hover transition cursor-pointer"
   >
-    <svg
-      class="w-5 h-5"
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      stroke-width="2"
-    >
-      <circle cx="9" cy="20" r="1" />
-      <circle cx="18" cy="20" r="1" />
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        d="M3 4h2l2.4 11.2a2 2 0 0 0 2 1.6h7.9a2 2 0 0 0 2-1.6L21 7H7"
-      />
-    </svg>
+    
 
     Add to Cart
   </button>
@@ -271,7 +257,7 @@ function renderProductDetails() {
   <!-- Buy Now -->
   <button
     id="buy-now-btn"
-    class="flex-1 px-8 py-4 rounded-full border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition"
+    class="flex-1 px-6 py-2 rounded-full border-2 border-primary text-primary font-medium hover:bg-primary hover:text-white transition cursor-pointer"
   >
     Buy Now
   </button>
@@ -344,9 +330,10 @@ function renderProductDetails() {
       showToast(" Added to Wishlist");
     }
   });
-
+  setupProductDetailsAnimations();
 }
 renderProductDetails();
+
 
 ///////////product images
 

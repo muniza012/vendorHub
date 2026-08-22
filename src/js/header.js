@@ -1,3 +1,4 @@
+import { animateBadge, setupHeaderAnimations } from "./headerAnimations.js";
 const cartCount = document.getElementById("cart-count");
 
 export function updateCartBadge() {
@@ -21,8 +22,11 @@ export function updateCartBadge() {
 
     cartCount.textContent = totalItems;
   }
+  animateBadge(cartCount);
 }
 updateCartBadge();
+
+
 
 export function updateWishlistBadge() {
   const wishlist = JSON.parse(localStorage.getItem("vendorHubWishlist")) || [];
@@ -38,8 +42,10 @@ export function updateWishlistBadge() {
 
     wishlistCount.textContent = wishlist.length;
   }
+  animateBadge(wishlistCount);
 }
 updateWishlistBadge();
+
 
 /////logout
 const accountBtn = document.getElementById("account-btn");
@@ -59,3 +65,4 @@ if (accountBtn && accountDropdown) {
     e.stopPropagation();
   });
 }
+setupHeaderAnimations();

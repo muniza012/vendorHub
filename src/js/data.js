@@ -1,5 +1,32 @@
 export const IMAGE_PATH = "../../assets/category-assets/";
 
+
+export const heroSlides = [
+  {
+    title: "Summer Sale",
+    offer: "Up to 70% OFF",
+    description: "Discover amazing products from your favorite stores.",
+    button: "Shop Now",
+    image: "slider-4.avif",
+  },
+
+  {
+    title: "Latest Gadgets",
+    offer: "Starting at $99",
+    description: "Phones, laptops, gaming and more.",
+    button: "Explore",
+    image: "slider-3.avif",
+  },
+
+  {
+    title: "Trending Styles",
+    offer: "Buy 2 Get 1",
+    description: "Upgrade your wardrobe with top brands.",
+    button: "Discover",
+    image: "slider-2.avif",
+  },
+];
+
 export const products = [
   {
     id: 1,
@@ -229,64 +256,114 @@ export const products = [
     ],
   },
 ];
+// export const stores = [
+//   {
+//     id: 1,
+//     name: "Hotels",
+//     logo: "hotels.png",
+//     alt: "Hotels",
+//   },
+
+//   {
+//     id: 2,
+//     name: "Nike",
+//     logo: "nike.png",
+//     alt: "Nike",
+//   },
+
+//   {
+//     id: 3,
+//     name: "Temu",
+//     logo: "temu.png",
+//     alt: "Temu",
+//   },
+
+//   {
+//     id: 4,
+//     name: "Adidas",
+//     logo: "addidas.png",
+//     alt: "Adidas",
+//     hoverBg: "hover:bg-black",
+//   },
+
+//   {
+//     id: 5,
+//     name: "Expedia",
+//     logo: "expedia.png",
+//     alt: "Expedia",
+//   },
+
+//   {
+//     id: 6,
+//     name: "Walgreen",
+//     logo: "walgreen.png",
+//     alt: "Walgreen",
+//   },
+
+//   {
+//     id: 7,
+//     name: "Kohl's",
+//     logo: "kohls.png",
+//     alt: "Kohl's",
+//     hoverBg: "hover:bg-black",
+//   },
+// ];
+
 export const stores = [
   {
     id: 1,
-    name: "Hotels",
-    logo: "hotels.png",
-    alt: "Hotels",
+    name: "Sony Official",
+    logo: "sonyLogo.png",
+    alt: "Sony Official",
+    isNew: false,
     hoverBg: "hover:bg-pink-950",
   },
 
   {
     id: 2,
-    name: "Nike",
-    logo: "nike.png",
-    alt: "Nike",
+    name: "Nike Store",
+    logo: "nikeLogo.png",
+    alt: "Nike Store",
+    isNew: false,
     hoverBg: "hover:bg-red-800",
   },
 
   {
     id: 3,
-    name: "Temu",
-    logo: "temu.png",
-    alt: "Temu",
-    hoverBg: "hover:bg-orange-400",
+    name: "Apple Store",
+    logo: "AppleLogo.png",
+    alt: "Apple Store",
+    isNew: false,
+    hoverBg: "hover:bg-red-800",
   },
 
   {
     id: 4,
-    name: "Adidas",
-    logo: "addidas.png",
-    alt: "Adidas",
-    hoverBg: "hover:bg-black",
-  },
-
-  {
-    id: 5,
-    name: "Expedia",
-    logo: "expedia.png",
-    alt: "Expedia",
-    hoverBg: "hover:bg-blue-600",
-  },
-
-  {
-    id: 6,
-    name: "Walgreen",
-    logo: "walgreen.png",
-    alt: "Walgreen",
+    name: "Nespresso Official",
+    logo: "NespressoLogo.png",
+    alt: "Nespresso Official",
+    isNew: false,
     hoverBg: "hover:bg-green-950",
   },
 
   {
-    id: 7,
-    name: "Kohl's",
-    logo: "kohls.png",
-    alt: "Kohl's",
-    hoverBg: "hover:bg-black",
+    id: 5,
+    name: "Logitech Store",
+    logo: "logitechLogo.png",
+    alt: "Logitech Store",
+    isNew: true,
+    hoverBg: "hover:bg-orange-400",
+  },
+
+  {
+    id: 6,
+    name: "Huda Beauty",
+    logo: "hudaLogo.png",
+    alt: "Huda Beauty",
+    isNew: true,
+    hoverBg: "hover:bg-blue-600",
   },
 ];
-
 export const categories = [
   { name: "Food" },
   { name: "Electronics" },
@@ -294,6 +371,67 @@ export const categories = [
   { name: "Clothing" },
   { name: "Travel" },
   { name: "Home" },
+  { name: "Accessories" },
+];
+
+
+export const categoryCarouselItems = [
+  {
+    name: "Clothing",
+    image: "3.-clothing.png",
+    alt: "Clothing",
+  },
+  {
+    name: "Beauty",
+    image: "beauty.png",
+    alt: "Beauty",
+  },
+  {
+    name: "Accessories",
+    image: "accessories1762370411256.png",
+    alt: "Accessories",
+  },
+  {
+    name: "Travel",
+    image: "1.-travel.png",
+    alt: "Travel",
+  },
+  {
+    name: "Food",
+    image: "12.-food.png",
+    alt: "Food",
+  },
+  {
+    name: "Electronics",
+    image: "electronic.png",
+    alt: "Electronics",
+  },
+  {
+    name: "Home",
+    image: "home (1).png",
+    alt: "Home",
+  },
+  {
+    name: "Favourites",
+    type: "link",
+    link: "wishlist.html",
+    image: "favorties.png",
+    alt: "Favourites",
+  },
+  {
+    name: "All-stores",
+    type: "link",
+    link: "stores.html",
+    image: "all-stores.png",
+    alt: "All Stores",
+  },
+  {
+    name: "New Stores",
+    type: "link",
+    link: "stores.html?filter=new",
+    image: "new-stores.png",
+    alt: "New Stores",
+  },
 ];
 
 ////////////delivery options
