@@ -96,32 +96,32 @@
         <div class="modal-content">
           <span class="close-btn" id="closeBtn">&times;</span>
 
-          <form class="form">
+          <form class="form" id="customerSignupForm" onsubmit="handleSignup(event)">
             <p class="title">Register </p>
             <p class="message">Signup now and get full access to our app. </p>
             <div class="flex">
               <label>
-                <input required="" placeholder="" type="text" class="input">
+                <input required="" placeholder="" type="text" class="input" id="firstName">
                 <span>Firstname</span>
               </label>
 
               <label>
-                <input required="" placeholder="" type="text" class="input">
+                <input required="" placeholder="" type="text" class="input" id="lastName">
                 <span>Lastname</span>
               </label>
             </div>
 
             <label>
-              <input required="" placeholder="" type="email" class="input">
+              <input required="" placeholder="" type="email" class="input" id="signupEmail">
               <span>Email</span>
             </label>
 
             <label>
-              <input required="" placeholder="" type="password" class="input">
+              <input required="" placeholder="" type="password" class="input" id="signupPassword" minlength="6">
               <span>Password</span>
             </label>
             <label>
-              <input required="" placeholder="" type="password" class="input">
+              <input required="" placeholder="" type="password" class="input" id="confirmSignupPassword" minlength="6">
               <span>Confirm password</span>
             </label>
             <button class="submit">Submit</button>
@@ -379,9 +379,6 @@
     </div>
   </footer>
 <!-- footer end -->
-</body>
-</html>
   <script type="module" src="../js/home-before.js"></script>
 </body>
-
 </html>

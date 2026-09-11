@@ -1,3 +1,4 @@
+import { loginFunction } from "../../firebase.config.js";
 const togglePassword = document.getElementById('togglePassword');
     const passwordInput = document.getElementById('passwordInput');
 
@@ -10,8 +11,14 @@ const togglePassword = document.getElementById('togglePassword');
       this.classList.toggle('fa-eye-slash');
     });
 
-    // Form Submit Handler
-    function handleLogin(event) {
-      event.preventDefault();
-      alert('Login submitted successfully!');
+const email = document.querySelector("#email");
+const password = document.querySelector("#password");
+  document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault();
+    try {
+      await loginFunction(email.value, password.value);
+      alert('Login successful.');
+    } catch (error) {
+      alert('Login failed. Please check your email and password.');
     }
+  });

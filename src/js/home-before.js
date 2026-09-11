@@ -1,4 +1,4 @@
-// import {auth,createUserWithEmailAndPassword}from "../firebase.config.js"
+import { loginFunction, signUpFunction } from "../../firebase.config.js";
 const modal = document.getElementById("signUpModal");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -106,7 +106,7 @@ function switchRole(role) {
 //   }
 // }
 
-function handleLogin(event) {
+async function handleLogin(event) {
   event.preventDefault();
 
   const role = document.getElementById('userRole').value;
@@ -119,26 +119,75 @@ function handleLogin(event) {
       return;
     }
     document.getElementById('confirmVendorPassword').setCustomValidity('');
-    console.log('Vendor store registration submitted:', {
-      storeName: document.getElementById('storeName').value,
-      ownerName: document.getElementById('ownerName').value,
-      email: document.getElementById('vendorEmail').value,
-      category: document.getElementById('storeCategory').value
-    });
+    try {
+      await signUpFunction(
+        `${document.getElementById('storeName').value} - ${document.getElementById('ownerName').value}`,
+        document.getElementById('vendorEmail').value,
+        password,
+        {
+          role: 'seller',
+          storeName: document.getElementById('storeName').value,
+          ownerName: document.getElementById('ownerName').value,
+          phone: document.getElementById('phone').value,
+          storeCategory: document.getElementById('storeCategory').value,
+        }
+      );
+      alert('Vendor account created successfully.');
+      document.getElementById('loginForm').reset();
+    } catch (error) {
+      alert(getAuthErrorMessage(error));
+    }
     return;
   }
   const email = document.getElementById('email').value;
   const password = document.getElementById('password').value;
 
-  console.log("Form Submitted:", {
-    role,
-    email,
-    password
-  });
+  try {
+    await loginFunction(email, password);
+    alert(`${role === 'vendor' ? 'Vendor' : 'Customer'} login successful.`);
+  } catch (error) {
+    alert(getAuthErrorMessage(error));
+  }
+}
+
+async function handleSignup(event) {
+  event.preventDefault();
+  const password = document.getElementById('signupPassword').value;
+  const confirmation = document.getElementById('confirmSignupPassword').value;
+  if (password !== confirmation) {
+    document.getElementById('confirmSignupPassword').setCustomValidity('Passwords do not match.');
+    document.getElementById('confirmSignupPassword').reportValidity();
+    return;
+  }
+  document.getElementById('confirmSignupPassword').setCustomValidity('');
+
+  try {
+    await signUpFunction(
+      `${document.getElementById('firstName').value} ${document.getElementById('lastName').value}`,
+      document.getElementById('signupEmail').value,
+      password,
+      { role: 'customer' }
+    );
+    alert('Customer account created successfully.');
+    document.getElementById('customerSignupForm').reset();
+  } catch (error) {
+    alert(getAuthErrorMessage(error));
+  }
+}
+
+function getAuthErrorMessage(error) {
+  const messages = {
+    'auth/email-already-in-use': 'An account already exists for this email.',
+    'auth/invalid-credential': 'The email or password is incorrect.',
+    'auth/weak-password': 'Password must be at least 6 characters.',
+    'auth/invalid-email': 'Please enter a valid email address.'
+  };
+  return messages[error.code] || 'Authentication failed. Please try again.';
 }
 
 window.switchRole = switchRole;
 window.handleLogin = handleLogin;
+window.handleSignup = handleSignup;
 document.addEventListener("DOMContentLoaded", () => {
   const cards = document.querySelectorAll(".review-card");
 
