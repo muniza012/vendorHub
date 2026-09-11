@@ -1,0 +1,15 @@
+@import url("admin-dashboard.css");
+
+.catalog-view {
+  display: block;
+}
+
+.catalog-page-title {
+  color: var(--primary);
+}
+
+@media (max-width: 992px) {
+  .catalog-view {
+    width: 100%;
+  }
+}

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sales | VendorHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+  <link rel="stylesheet" href="../../src/css/admin-sales.css">
+</head>
+<body>
+  <header class="navbar"><a href="admin-Dashboard.html" class="navbar-brand"><img class="logo" src="../../assets/gemini-svg.svg" alt="VendorHub"></a><div class="navbar-user"><img src="https://via.placeholder.com/32" alt="User Avatar"><span>demo demo</span><a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a></div></header>
+  <div class="app-container"><aside class="sidebar"><div class="sidebar-header">Navigation</div><ul class="sidebar-menu">
+    <li><a href="admin-Dashboard.html"><span class="menu-title"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></span></a></li>
+    <li><a href="admin-catalog.html"><span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span></a></li>
+    <li class="active"><a href="admin-sales.html"><span class="menu-title"><i class="fa-solid fa-cart-shopping"></i> <span>Sales</span></span></a></li>
+    <li><a href="admin-marketing.html"><span class="menu-title"><i class="fa-solid fa-bullhorn"></i> <span>Marketing</span></span></a></li>
+    <li><a href="admin-reviews.html"><span class="menu-title"><i class="fa-solid fa-chart-line"></i> <span>Reviews</span></span></a></li>
+  </ul><div class="sidebar-stats"><div class="stat-progress"><div class="stat-progress-header"><span>Orders Completed</span><span>0%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div></div><div class="stat-progress"><div class="stat-progress-header"><span>Orders Processing</span><span>23%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 23%;"></div></div></div><div class="stat-progress"><div class="stat-progress-header"><span>Other Statuses</span><span>0%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div></div></div></aside>
+    <main class="main-content"><div class="page-header"><h1 class="page-title">Sales</h1><div class="breadcrumb"><a href="admin-Dashboard.html">Home</a> / <span>Sales</span></div></div>
+      <section class="sales-page"><div class="section-intro"><div><p class="eyebrow">Order management</p><h2>Keep every order moving</h2><p>Track pending fulfilment and completed orders from one place.</p></div><button class="primary-button" id="export-orders"><i class="fa-solid fa-download"></i> Export orders</button></div>
+        <div class="metric-grid"><div class="metric-card"><span class="metric-icon orange"><i class="fa-solid fa-clock"></i></span><div><span>Pending orders</span><strong id="pending-count">0</strong></div></div><div class="metric-card"><span class="metric-icon green"><i class="fa-solid fa-circle-check"></i></span><div><span>Completed orders</span><strong id="completed-count">0</strong></div></div><div class="metric-card"><span class="metric-icon blue"><i class="fa-solid fa-dollar-sign"></i></span><div><span>Revenue this month</span><strong id="revenue-total">$0</strong></div></div><div class="metric-card"><span class="metric-icon purple"><i class="fa-solid fa-arrow-trend-up"></i></span><div><span>Average order value</span><strong id="average-order">$0</strong></div></div></div>
+        <div class="order-panel card"><div class="panel-toolbar"><div><h3>Orders</h3><p id="order-count">0 orders</p></div><div class="toolbar-actions"><div class="search-field"><i class="fa-solid fa-magnifying-glass"></i><input id="order-search" type="search" placeholder="Search order or customer" aria-label="Search orders"></div><select id="order-filter" aria-label="Filter orders"><option value="all">All orders</option><option value="pending">Pending</option><option value="completed">Completed</option></select></div></div><div class="table-responsive"><table class="table"><thead><tr><th>Order</th><th>Customer</th><th>Items</th><th>Date</th><th>Total</th><th>Status</th><th>Action</th></tr></thead><tbody id="order-table"></tbody></table></div></div>
+      </section>
+    </main></div><footer class="footer"><a href="#">OpenCart</a> © 2009-2026 All Rights Reserved.<br>Version 3.0.3.7</footer>
+  <script src="../../src/js/admin-orders.js"></script>
+  <script src="../../src/js/admin-sales.js"></script>
+</body></html>

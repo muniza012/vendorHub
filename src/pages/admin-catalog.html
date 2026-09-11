@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catalog | VendorHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+  <link rel="stylesheet" href="../../src/css/admin-catalog.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="admin-Dashboard.html" class="navbar-brand"><img class="logo" src="../../assets/gemini-svg.svg" alt="VendorHub"></a>
+    <div class="navbar-user">
+      <img src="https://via.placeholder.com/32" alt="User Avatar">
+      <span>demo demo</span>
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">Navigation</div>
+      <ul class="sidebar-menu">
+        <li><a href="admin-Dashboard.html"><span class="menu-title"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></span></a></li>
+        <li class="active"><a href="admin-catalog.html"><span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span></a></li>
+        <li><a href="#"><span class="menu-title"><i class="fa-solid fa-cart-shopping"></i> <span>Sales</span></span><i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i></a></li>
+        <li><a href="#"><span class="menu-title"><i class="fa-solid fa-bullhorn"></i> <span>Marketing</span></span><i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i></a></li>
+        <li><a href="#"><span class="menu-title"><i class="fa-solid fa-gear"></i> <span>System</span></span><i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i></a></li>
+        <li><a href="#"><span class="menu-title"><i class="fa-solid fa-chart-line"></i> <span>Reports</span></span><i class="fa-solid fa-chevron-right" style="font-size: 10px;"></i></a></li>
+      </ul>
+      <div class="sidebar-stats">
+        <div class="stat-progress"><div class="stat-progress-header"><span>Orders Completed</span><span>0%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div></div>
+        <div class="stat-progress"><div class="stat-progress-header"><span>Orders Processing</span><span>23%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 23%;"></div></div></div>
+        <div class="stat-progress"><div class="stat-progress-header"><span>Other Statuses</span><span>0%</span></div><div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div></div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Catalog</h1>
+        <div class="breadcrumb"><a href="admin-Dashboard.html">Home</a> / <span>Catalog</span></div>
+      </div>
+
+      <section class="catalog-view" aria-labelledby="catalog-title">
+        <div class="catalog-intro">
+          <div><p class="eyebrow">Store inventory</p><h2 id="catalog-title">Your catalog</h2><p class="catalog-subtitle">Manage the products customers can discover in your storefront.</p></div>
+          <div class="vendor-switcher"><label for="vendor-select">Viewing catalog for</label><select id="vendor-select" aria-label="Select demo vendor"></select></div>
+        </div>
+        <div class="catalog-summary" aria-label="Catalog summary">
+          <div class="summary-card"><span class="summary-icon blue"><i class="fa-solid fa-boxes-stacked"></i></span><div><span>Total products</span><strong id="total-products">0</strong></div></div>
+          <div class="summary-card"><span class="summary-icon green"><i class="fa-solid fa-circle-check"></i></span><div><span>Published</span><strong id="published-products">0</strong></div></div>
+          <div class="summary-card"><span class="summary-icon amber"><i class="fa-solid fa-triangle-exclamation"></i></span><div><span>Low stock</span><strong id="low-stock-products">0</strong></div></div>
+          <div class="summary-card"><span class="summary-icon orange"><i class="fa-solid fa-chart-line"></i></span><div><span>Catalog value</span><strong id="catalog-value">$0</strong></div></div>
+        </div>
+        <div class="catalog-toolbar">
+          <div class="catalog-search"><i class="fa-solid fa-magnifying-glass"></i><input id="product-search" type="search" placeholder="Search products, SKU or category" aria-label="Search catalog"></div>
+          <select id="category-filter" aria-label="Filter by category"><option value="all">All categories</option></select>
+          <select id="status-filter" aria-label="Filter by status"><option value="all">All statuses</option><option value="published">Published</option><option value="draft">Draft</option></select>
+          <select id="sort-products" aria-label="Sort products"><option value="recent">Recently added</option><option value="name">Name A-Z</option><option value="price-low">Price: low to high</option><option value="stock-low">Stock: low to high</option></select>
+          <button id="add-product-button" class="catalog-primary-button" type="button"><i class="fa-solid fa-plus"></i> Add product</button>
+        </div>
+        <div class="catalog-list card">
+          <div class="catalog-list-header"><div><h3>Product list</h3><p id="catalog-result-count">0 products</p></div><button id="clear-filters" class="text-button" type="button">Clear filters</button></div>
+          <div id="product-grid" class="product-grid" aria-live="polite"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="product-modal" class="modal-backdrop" hidden>
+    <div class="product-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="modal-header"><div><p class="eyebrow">Catalog update</p><h2 id="modal-title">Add a product</h2></div><button id="close-product-modal" class="modal-close" type="button" aria-label="Close dialog"><i class="fa-solid fa-xmark"></i></button></div>
+      <form id="product-form"><div class="form-grid"><label>Product name<input name="name" required placeholder="e.g. Ceramic pour-over set"></label><label>Category<select name="category" required><option>Home & Living</option><option>Fashion</option><option>Beauty</option><option>Food & Drink</option><option>Electronics</option></select></label><label>Price<input name="price" type="number" min="0.01" step="0.01" required placeholder="49.00"></label><label>Stock<input name="stock" type="number" min="0" step="1" required placeholder="25"></label></div><div class="modal-actions"><button id="cancel-product" class="secondary-button" type="button">Cancel</button><button class="catalog-primary-button" type="submit"><i class="fa-solid fa-plus"></i> Add to catalog</button></div></form>
+    </div>
+  </div>
+
+  <footer class="footer"><a href="#">OpenCart</a> © 2009-2026 All Rights Reserved.<br>Version 3.0.3.7</footer>
+  <script src="../../src/js/admin-catalog.js"></script>
+</body>
+</html>

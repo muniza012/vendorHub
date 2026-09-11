@@ -5,6 +5,10 @@ body {
   overflow-x: hidden;
   font-family: var(--font-poppins);
 }
+
+body.modal-open {
+  overflow: hidden;
+}
 :root {
   /* Card Backgrounds */
   --bg-dark-blue: #23225c;
@@ -308,6 +312,7 @@ width: 110px;
   z-index: 1000;
   align-items: center;
   justify-content: center;
+  overflow-y: auto;
 }
 
 /* Modal Content Box */
@@ -320,6 +325,8 @@ width: 110px;
   border-radius: 24px;
   width: min(100%, 460px);
   position: relative;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
 }
 
 /* Close button style */
@@ -620,6 +627,76 @@ h2 {
 
 .seller-mode .forgot-pass {
   color: var(--accent);
+}
+
+.tab-header .tab-btn {
+  background: transparent;
+  flex: 1;
+}
+
+.vendor-signup-link,
+.back-to-login {
+  background-color: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: var(--surface);
+  cursor: pointer;
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px 0 0;
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.back-to-login {
+  margin-top: 10px;
+}
+
+.vendor-signup-link:hover,
+.back-to-login:hover {
+  background-color: var(--accent-hover);
+}
+
+.vendor-signup-fields .form-group {
+  margin-bottom: 14px;
+}
+
+.form-row {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-primary);
+  background: var(--surface);
+  font-size: 14px;
+}
+
+.vendor-terms {
+  align-items: center;
+  color: var(--text-secondary);
+  display: flex;
+  font-size: 11px;
+  gap: 7px;
+  margin: 2px 0 14px;
+}
+
+.vendor-terms input {
+  accent-color: var(--accent);
+}
+
+@media (max-width: 520px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
 }
 :root {
   --primary: #003049;
