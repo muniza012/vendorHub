@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../../src/css/admin-dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <header class="navbar">
+    <a href="#" class="navbar-brand ">
+      <img class="logo" src="../../assets/gemini-svg.svg" alt="">
+    <div class="navbar-user">
+      <img src="https://via.placeholder.com/32" alt="User Avatar">
+      <span>demo demo</span>
+      
+      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    </div>
+  </header>
+
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">Navigation</div>
+      <ul class="sidebar-menu">
+        <li class="active">
+          <a href="admin-sales.html">
+            <span class="menu-title"><i class="fa-solid fa-gauge-high"></i> <span>Dashboard</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="admin-catalog.html">
+            <span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="admin-marketing.html">
+            <span class="menu-title"><i class="fa-solid fa-cart-shopping"></i> <span>Sales</span></span>
+
+          </a>
+        </li>
+        <li>
+          <a href="admin-reviews.html">
+            <span class="menu-title"><i class="fa-solid fa-bullhorn"></i> <span>Marketing</span></span>
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <span class="menu-title"><i class="fa-solid fa-chart-line"></i> <span>Reviews</span></span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="sidebar-stats">
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Orders Completed</span>
+            <span>0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+        </div>
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Orders Processing</span>
+            <span>23%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 23%;"></div></div>
+        </div>
+        <div class="stat-progress">
+          <div class="stat-progress-header">
+            <span>Other Statuses</span>
+            <span>0%</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width: 0%;"></div></div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="page-header">
+        <h1 class="page-title">Dashboard</h1>
+        <div class="breadcrumb">
+          <a href="#">Home</a> / <span>Dashboard</span>
+        </div>
+      </div>
+
+      <!-- Top KPI Cards -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Orders</h4>
+              <h2>132</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-shopping-bag"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Sales</h4>
+              <h2>205.9K</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-credit-card"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>Total Customers</h4>
+              <h2>104</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-user"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-body">
+            <div class="kpi-info">
+              <h4>People Online</h4>
+              <h2>17</h2>
+            </div>
+            <div class="kpi-icon"><i class="fa-solid fa-users"></i></div>
+          </div>
+          <div class="kpi-footer">
+            <span>0%</span>
+            <a href="#">View more...</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sales Analytics Card (Full Row) -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <i class="fa-solid fa-chart-bar"></i> Sales Analytics
+          </div>
+          <div class="card-actions">
+            <i class="fa-solid fa-calendar-days"></i>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="chart-container dashboard-chart-container">
+            <canvas id="sales-chart" aria-label="Orders and revenue chart" role="img"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Layout: Recent Activity & Latest Orders -->
+      <div class="dashboard-grid">
+        <!-- Recent Activity Panel -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <i class="fa-solid fa-clock"></i> Recent Activity
+            </div>
+          </div>
+          <div class="card-body">
+            <ul id="recent-activity-list" class="activity-list"></ul>
+          </div>
+        </div>
+
+        <!-- Latest Orders Panel -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <i class="fa-solid fa-shopping-cart"></i> Latest Orders
+            </div>
+          </div>
+          <div class="card-body" style="padding: 0;">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Order ID</th>
+                    <th>Customer</th>
+                    <th>Status</th>
+                    <th>Date Added</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="latest-orders-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <a href="#">OpenCart</a> © 2009-2026 All Rights Reserved.<br>
+    Version 3.0.3.7
+  </footer>
+  <script src="../../src/js/admin-orders.js"></script>
+  <script src="../../src/js/admin-dashboard.js"></script>
+</body>
+</html>

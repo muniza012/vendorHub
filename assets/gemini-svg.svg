@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" width="100%" height="100%">
+  <!-- Text: VendorHub -->
+  <text 
+    x="300" 
+    y="100" 
+    text-anchor="middle" 
+    fill="#F77F00" 
+    font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" 
+    font-size="82" 
+    font-weight="700" 
+    letter-spacing="-1.5px">
+    VendorHub
+  </text>
+  
+  <!-- Underline Accent Wedge -->
+  <polygon 
+    points="155,116 435,116 175,134" 
+    fill="#F77F00" />
+</svg>

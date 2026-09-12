@@ -1,0 +1,28 @@
+:root{
+    /* (Navbar, Footer, Sidebar) */
+    --primary: #003049 ;
+    /* (Hover backgrounds, cards, sections) */
+--secondary: #B0C8D7 ;
+/* (CTA Buttons, Add to Cart, Create Shop) */
+--accent: #F77F00 ;
+/* (Button Hover) */
+--accent-hover: #D96D00 ;
+/* (Main page background) */
+--background: #F8F9FA ;
+/* (Product cards, forms) */
+--surface: #FFFFFF ;
+/* (Headings, prices, product names) */
+--text-primary: #1F2937 ;
+/* (Descriptions, other text) */
+--text-secondary: #6B7280 ;
+
+--border: #E5E7EB;
+/* Font */
+  --font-poppins: "Poppins", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-poppins);
+}

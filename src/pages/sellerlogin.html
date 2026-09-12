@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Login</title>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="..." crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/sellerlogin.css">
+</head>
+<body>
+    <!-- Top Navigation Header -->
+  <header class="header">
+    <a href="#" class="brand-logo">
+        VendorHub
+     <!-- <img src="../../assets/logonew1.png" alt="VendorHub"> -->
+    </a>
+    <div class="header-action">
+      <span>Don't have an account?</span>
+      <a href="#" class="btn-signup">
+        <i class="fa-regular fa-user"></i> Sign up
+      </a>
+    </div>
+  </header>
+
+  <!-- Main Login Section -->
+  <main class="login-wrapper">
+    <div class="login-card">
+      
+      <!-- Left Feature Section -->
+      <div class="info-section">
+        <svg class="illustration" viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Illustration graphic placeholder -->
+          <rect x="90" y="100" width="220" height="140" rx="8" fill="#E2E8F0"/>
+          <path d="M70 100 L200 40 L330 100 Z" fill="#B0C8D7"/>
+          <rect x="110" y="130" width="70" height="90" rx="4" fill="#003049"/>
+          <rect x="210" y="130" width="80" height="50" rx="4" fill="#F77F00"/>
+          <circle cx="50" cy="210" r="15" fill="#CBD5E1"/>
+          <rect x="35" y="225" width="30" height="25" fill="#6B7280"/>
+        </svg>
+
+        <h2 class="info-title">Why VendorHub</h2>
+        <ul class="feature-list">
+          <li class="feature-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Sell Online to 1 Cr+ Customer at 3% Commission</span>
+          </li>
+          <li class="feature-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>Become a Shopora seller & grow your business</span>
+          </li>
+          <li class="feature-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>700+ Categories to sell online</span>
+          </li>
+          <li class="feature-item">
+            <i class="fa-regular fa-circle-check"></i>
+            <span>11 Crore+ Customers buying across Pakistan</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Right Login Form Section -->
+      <div class="form-section">
+        <div class="user-icon-badge">
+          <i class="fa-regular fa-user"></i>
+        </div>
+
+        <h1 class="form-title">Login to your supplier panel</h1>
+        <p class="form-subtitle">Welcome back, you've been missed!</p>
+
+        <form id="loginForm" onsubmit="handleLogin(event)">
+          <!-- Email / Mobile Input -->
+          <div class="input-group">
+            <div class="input-wrapper">
+              <i class="fa-regular fa-user left-icon"></i>
+              <input id="email" type="text" class="input-control" placeholder="Email Id or Mobile number" required>
+            </div>
+          </div>
+
+          <!-- Password Input -->
+          <div class="input-group">
+            <div class="input-wrapper">
+              <i class="fa-solid fa-lock left-icon"></i>
+              <input id="password" type="password" id="passwordInput" class="input-control" placeholder="Enter Password" required>
+              <i class="fa-regular fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+          </div>
+
+          <!-- Options Row -->
+          <div class="form-options">
+            <label class="remember-me">
+              <input type="checkbox">
+              <span>Remember Me</span>
+            </label>
+            <a href="#" class="forgot-link">Forgot Password ?</a>
+          </div>
+
+          <!-- Submit Button -->
+          <button id="button" type="submit" class="btn-login">Log In</button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2021 VendorHub. All rights reserved.
+  </footer>
+  <script type="module" src="../js/sellerlogin.js"></script>
+</body>
+</html>

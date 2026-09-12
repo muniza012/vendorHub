@@ -31,6 +31,6 @@ Orders
 Create Shop
 Add Product
 
-Rakuten UI
+VendorHub UI
 ---------
-https://www.rakuten.com/ 
+https://www.VendorHub.com/ 
