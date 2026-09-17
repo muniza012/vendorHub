@@ -19,7 +19,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
       await signOut(auth);
-      window.location.href = "home-before.html"; // Redirects back to the public home/login page
+      window.location.href = "/"; // Redirects back to the public home/login page
     } catch (err) {
       console.error("Logout failed:", err);
     }

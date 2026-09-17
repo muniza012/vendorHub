@@ -21,7 +21,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
       await logOutUser();
-      window.location.href = "home-before.html";
+      window.location.href = "/";
     } catch (error) {
       console.error("Logout Error:", error);
       alert("Failed to log out.");
@@ -57,7 +57,7 @@ onAuthStateChanged(auth, async (user) => {
     await renderCatalog();
   } else {
     // Redirect if unauthenticated
-    window.location.href = "home-before.html";
+    window.location.href = "/";
   }
 });
 

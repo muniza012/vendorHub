@@ -131,17 +131,18 @@ width: 110px;
   height: 1.2em;
   vertical-align: bottom;
   overflow: hidden;
-  min-width: 280px;
+  min-width: 500px;
 }
 
 .animated-text {
   position: absolute;
+  max-width: 600px;
   left: 0;
   top: 0;
   display: inline;
-  background-color: var(--secondary);
-  color: var(--primary);
-  padding: 2px 12px;
+  background-color: var(--accent);
+  color: white;
+  padding: 2px 15px;
   border-radius: 8px;
   font-weight: 600;
   white-space: nowrap;
@@ -1010,9 +1011,9 @@ body {
 }
 
 .scd-01 {
-  --accent: oklch(0.62 0.17 264);
+  --accent: #F77F00 ;
   font-family: 'Segoe UI',system-ui,sans-serif;
-  background: #eef0f4;
+  background: #003049;
   width: 100%;
   height: 100vh;
   overflow-y: auto;
@@ -1036,7 +1037,7 @@ body {
   border-radius: 22px;
   padding: 34px;
   color: #fff;
-  background: linear-gradient(135deg,var(--accent),oklch(0.55 0.16 292));
+  background: linear-gradient(360deg,var(--secondary),#cc8c48,#c78137,#F77F00 );
   box-shadow: 0 30px 60px -34px rgba(20,24,50,.7);
   animation: scd-01-shrink linear both;
   animation-timeline: view();
@@ -1044,15 +1045,15 @@ body {
 }
 
 .scd-01__card:nth-child(3) {
-  background: linear-gradient(135deg,oklch(0.66 0.15 200),oklch(0.6 0.16 250));
+  background: linear-gradient(360deg,var(--secondary),#cc8c48,#c78137,#F77F00 );
 }
 
 .scd-01__card:nth-child(4) {
-  background: linear-gradient(135deg,oklch(0.7 0.15 150),oklch(0.62 0.15 200));
+  background:  linear-gradient(360deg,var(--secondary),#cc8c48,#c78137,#F77F00 );
 }
 
 .scd-01__card:nth-child(5) {
-  background: linear-gradient(135deg,oklch(0.72 0.16 60),oklch(0.64 0.17 30));
+  background:  linear-gradient(360deg,var(--secondary),#cc8c48,#c78137,#F77F00 );
 }
 
 .scd-01__num {

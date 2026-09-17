@@ -42,7 +42,7 @@ onAuthStateChanged(auth, (user) => {
           <h2 class="text-xl font-semibold mb-2">Please log in</h2>
           <p class="text-gray-500 mb-6">Log in to view your cart.</p>
           <a
-            href="./home-before.html"
+            href="/"
             class="inline-block px-6 py-3 rounded-full bg-accent text-white hover:bg-accent-hover transition"
           >
             Log In

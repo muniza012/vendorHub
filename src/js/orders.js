@@ -22,7 +22,7 @@ onAuthStateChanged(auth, async (user) => {
   if (user) {
     await fetchAndRenderOrders(user.uid);
   } else {
-    window.location.href = "home-before.html";
+    window.location.href = "/";
   }
 });
 

@@ -13,7 +13,7 @@ import {
 onAuthStateChanged(auth, async (user) => {
   // User is not logged in
   if (!user) {
-    window.location.href = "home-before.html";
+    window.location.href = "/";
     return;
   }
 
@@ -24,7 +24,7 @@ onAuthStateChanged(auth, async (user) => {
 
     if (!userSnapshot.exists()) {
       await signOut(auth);
-      window.location.href = "home-before.html";
+      window.location.href = "/";
       return;
     }
 
@@ -54,7 +54,7 @@ onAuthStateChanged(auth, async (user) => {
       "orders.html",
       "checkout.html",
       "ordersuccess.html",
-      'wishlist.html'
+      "wishlist.html",
     ];
 
     if (customerPages.includes(fileName)) {
@@ -63,24 +63,27 @@ onAuthStateChanged(auth, async (user) => {
         return;
       }
     }
+
+    // ✅ Authorization passed! Reveal the page content smoothly
+    document.body.style.visibility = "visible";
   } catch (error) {
     console.error("AUTH GUARD ERROR:", error);
 
     await signOut(auth);
-    window.location.href = "home-before.html";
+    window.location.href = "/";
   }
 });
 
 function redirectUser(role) {
   if (role === "seller") {
-    window.location.href = "admin-dashboard.html";
+    window.location.href = "src/pages/admin-dashboard.html";
     return;
   }
 
   if (role === "customer") {
-    window.location.href = "loginDashboard.html";
+    window.location.href = "src/pages/loginDashboard.html";
     return;
   }
 
-  window.location.href = "home-before.html";
+  window.location.href = "/";
 }

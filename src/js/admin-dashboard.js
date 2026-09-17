@@ -18,7 +18,7 @@ let salesChartInstance = null;
 
 onAuthStateChanged(auth, async (user) => {
   if (!user) {
-    window.location.href = "home-before.html";
+    window.location.href = "h/";
     return;
   }
 
@@ -38,7 +38,7 @@ if (logoutBtn) {
   logoutBtn.addEventListener("click", async () => {
     try {
       await signOut(auth);
-      window.location.href = "home-before.html";
+      window.location.href = "/";
     } catch (err) {
       console.error("Logout failed:", err);
     }

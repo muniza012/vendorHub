@@ -138,10 +138,10 @@ async function handleLogin(event) {
 
     if (userData.role === "seller") {
       // Vendor
-      window.location.href = "admin-dashboard.html";
+      window.location.href = "src/pages/admin-dashboard.html";
     } else if (userData.role === "customer") {
       // Customer
-      window.location.href = "logInDashboard.html";
+      window.location.href = "src/pages/loginDashboard.html";
     } else {
       throw new Error("Invalid user role.");
     }
@@ -329,7 +329,7 @@ async function handleVendorSignup(event) {
     // GO TO VENDOR DASHBOARD
     // ==========================
 
-    window.location.href = "admin-dashboard.html";
+    window.location.href = "src/pages/admin-dashboard.html";
   } catch (error) {
     console.error("VENDOR SIGNUP ERROR:", error);
 
