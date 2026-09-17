@@ -1,3 +1,5 @@
+import { auth, getVendorProfile } from "../../firebase.config.js";
+
 (() => {
   const orders = window.VendorHubOrders || [];
   const money = (value) => new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" }).format(value);
@@ -41,7 +43,27 @@
     });
   }
 
+  async function renderVendorProfile() {
+    await auth.authStateReady();
+    const user = auth.currentUser;
+    if (!user) {
+      window.location.href = "../../home-before.html";
+      return;
+    }
+    const profile = await getVendorProfile(user.uid);
+    if (!profile || profile.role !== "seller") {
+      window.location.href = "../../home-before.html";
+      return;
+    }
+    const vendorName = profile.storeName || profile.displayName || "Your store";
+    document.querySelector(".navbar-user span").textContent = vendorName;
+    document.querySelector(".page-title").textContent = `${vendorName} Dashboard`;
+    document.querySelector(".breadcrumb span").textContent = profile.storeCategory || "Dashboard";
+    document.title = `${vendorName} Dashboard`;
+  }
+
   renderLatestOrders();
   renderActivity();
   renderChart();
+  renderVendorProfile().catch(() => { window.location.href = "../../home-before.html"; });
 })();

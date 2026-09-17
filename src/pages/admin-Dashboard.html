@@ -11,13 +11,12 @@
 </head>
 <body>
     <header class="navbar">
-    <a href="#" class="navbar-brand ">
-      <img class="logo" src="../../assets/gemini-svg.svg" alt="">
+    <a href="admin-Dashboard.html" class="navbar-brand">
+      <img class="logo" src="../../assets/logonew1.png" alt="VendorHub">
     <div class="navbar-user">
-      <img src="https://via.placeholder.com/32" alt="User Avatar">
-      <span>demo demo</span>
+      <a class="profile-link" href="vendor-profile.html" title="Open vendor profile"><span>Loading profile...</span></a>
       
-      <a href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+      <a class="logout-link" href="#"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
     </div>
   </header>
 
@@ -32,23 +31,13 @@
           </a>
         </li>
         <li>
-          <a href="admin-catalog.html">
-            <span class="menu-title"><i class="fa-solid fa-folder-open"></i> <span>Catalog</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="admin-marketing.html">
+          <a href="admin-sales.html">
             <span class="menu-title"><i class="fa-solid fa-cart-shopping"></i> <span>Sales</span></span>
 
           </a>
         </li>
         <li>
           <a href="admin-reviews.html">
-            <span class="menu-title"><i class="fa-solid fa-bullhorn"></i> <span>Marketing</span></span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
             <span class="menu-title"><i class="fa-solid fa-chart-line"></i> <span>Reviews</span></span>
           </a>
         </li>
@@ -213,6 +202,7 @@
     Version 3.0.3.7
   </footer>
   <script src="../../src/js/admin-orders.js"></script>
-  <script src="../../src/js/admin-dashboard.js"></script>
+  <script type="module" src="../../src/js/vendor-header.js"></script>
+  <script type="module" src="../../src/js/admin-dashboard.js"></script>
 </body>
 </html>

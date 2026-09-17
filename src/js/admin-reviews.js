@@ -1,3 +1,5 @@
+import("./vendor-header.js");
+
 (() => {
   const reviews = [
     { name: "Ava Thompson", date: "10 Sep 2026", rating: 5, product: "Linen Cloud Cushion", text: "Beautiful quality and the color is exactly as pictured. It made our reading corner feel complete.", replied: false },

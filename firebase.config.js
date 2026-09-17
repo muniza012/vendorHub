@@ -9,6 +9,7 @@ import {
 import {
   getFirestore,
   doc,
+  getDoc,
   setDoc,
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
@@ -28,22 +29,45 @@ const db = getFirestore(app);
 
 async function signUpFunction(displayName, email, password, profile = {}) {
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  if (displayName) {
-    await updateProfile(userCredential.user, { displayName });
-  }
-  await setDoc(doc(db, "users", userCredential.user.uid), {
+  const profileData = {
     uid: userCredential.user.uid,
     email: userCredential.user.email,
     displayName: displayName || "",
     ...profile,
     createdAt: new Date().toISOString(),
-  });
+  };
+  if (displayName) {
+    await updateProfile(userCredential.user, { displayName });
+  }
+  if (profile.role === "seller") {
+    await setDoc(doc(db, "stores", userCredential.user.uid), profileData);
+  }
+  await setDoc(doc(db, "users", userCredential.user.uid), profileData);
   return userCredential.user;
 }
 
 async function loginFunction(email, password) {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   return userCredential.user;
+}
+
+async function getUserProfile(uid) {
+  const snapshot = await getDoc(doc(db, "users", uid));
+  return snapshot.exists() ? snapshot.data() : null;
+}
+
+async function getVendorProfile(uid) {
+  const storeSnapshot = await getDoc(doc(db, "stores", uid));
+  if (storeSnapshot.exists()) return storeSnapshot.data();
+  const vendorSnapshot = await getDoc(doc(db, "vendors", uid));
+  return vendorSnapshot.exists() ? vendorSnapshot.data() : getUserProfile(uid);
+}
+
+async function updateVendorProfile(uid, profile) {
+  const updatedProfile = { ...profile, updatedAt: new Date().toISOString() };
+  await setDoc(doc(db, "stores", uid), updatedProfile, { merge: true });
+  await setDoc(doc(db, "users", uid), updatedProfile, { merge: true });
+  return updatedProfile;
 }
 
 async function logOutUser() {
@@ -54,5 +78,8 @@ export {
   auth,
   signUpFunction,
   loginFunction,
+  getUserProfile,
+  getVendorProfile,
+  updateVendorProfile,
   logOutUser,
 };

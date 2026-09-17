@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendor Profile | VendorHub</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../css/vendor-profile.css">
+</head>
+<body>
+  <header class="profile-header">
+    <a href="admin-Dashboard.html" class="brand"><img src="../../assets/gemini-svg.svg" alt="VendorHub"></a>
+    <a href="admin-Dashboard.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Dashboard</a>
+  </header>
+
+  <main class="profile-shell">
+    <div class="profile-heading">
+      <div>
+        <p class="eyebrow">Store account</p>
+        <h1>Vendor profile</h1>
+        <p>Keep your store and contact details up to date.</p>
+      </div>
+      <button id="edit-profile" class="primary-button" type="button"><i class="fa-solid fa-pen"></i> Edit details</button>
+    </div>
+
+    <section class="profile-card" aria-labelledby="profile-store-name">
+      <div class="profile-card-header">
+        <div class="store-avatar"><i class="fa-solid fa-store"></i></div>
+        <div><h2 id="profile-store-name">Loading store...</h2><p id="profile-category">Loading category...</p></div>
+      </div>
+      <div id="profile-message" class="message" role="status" hidden></div>
+      <form id="profile-form" class="profile-form" hidden>
+        <label>Store name<input name="storeName" required></label>
+        <label>Owner name<input name="ownerName" required></label>
+        <label>Phone number<input name="phone" type="tel" required></label>
+        <label>Store category<select name="storeCategory" required><option value="">Choose a category</option><option>Fashion</option><option>Home & Living</option><option>Beauty</option><option>Food & Drink</option><option>Electronics</option></select></label>
+        <div class="form-actions"><button id="cancel-edit" class="secondary-button" type="button">Cancel</button><button class="primary-button" type="submit"><i class="fa-solid fa-check"></i> Save details</button></div>
+      </form>
+      <dl id="profile-details" class="profile-details"></dl>
+    </section>
+  </main>
+  <script type="module" src="../js/vendor-profile.js"></script>
+</body>
+</html>

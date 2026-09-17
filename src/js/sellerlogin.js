@@ -1,6 +1,6 @@
-import { loginFunction } from "../../firebase.config.js";
+import { getUserProfile, loginFunction } from "../../firebase.config.js";
 const togglePassword = document.getElementById('togglePassword');
-    const passwordInput = document.getElementById('passwordInput');
+  const passwordInput = document.getElementById('password');
 
     togglePassword.addEventListener('click', function () {
       const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
@@ -16,9 +16,13 @@ const password = document.querySelector("#password");
   document.getElementById('loginForm').addEventListener('submit', async (event) => {
     event.preventDefault();
     try {
-      await loginFunction(email.value, password.value);
-      alert('Login successful.');
+      const user = await loginFunction(email.value, password.value);
+      const profile = await getUserProfile(user.uid);
+      if (profile?.role !== 'seller') {
+        throw new Error('This account is not registered as a vendor.');
+      }
+      window.location.href = './admin-Dashboard.html';
     } catch (error) {
-      alert('Login failed. Please check your email and password.');
+      alert(error.message || 'Login failed. Please check your email and password.');
     }
   });

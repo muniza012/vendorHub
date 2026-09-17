@@ -1,4 +1,4 @@
-import { loginFunction, signUpFunction } from "../../firebase.config.js";
+import { getUserProfile, loginFunction, signUpFunction } from "../../firebase.config.js";
 const modal = document.getElementById("signUpModal");
 const openBtn = document.getElementById("openBtn");
 const closeBtn = document.getElementById("closeBtn");
@@ -133,7 +133,7 @@ async function handleLogin(event) {
         }
       );
       alert('Vendor account created successfully.');
-      document.getElementById('loginForm').reset();
+      window.location.href = './src/pages/admin-Dashboard.html';
     } catch (error) {
       alert(getAuthErrorMessage(error));
     }
@@ -143,7 +143,12 @@ async function handleLogin(event) {
   const password = document.getElementById('password').value;
 
   try {
-    await loginFunction(email, password);
+    const user = await loginFunction(email, password);
+    const profile = await getUserProfile(user.uid);
+    if (role === 'vendor' && profile?.role === 'seller') {
+      window.location.href = './src/pages/admin-Dashboard.html';
+      return;
+    }
     alert(`${role === 'vendor' ? 'Vendor' : 'Customer'} login successful.`);
   } catch (error) {
     alert(getAuthErrorMessage(error));
@@ -180,7 +185,8 @@ function getAuthErrorMessage(error) {
     'auth/email-already-in-use': 'An account already exists for this email.',
     'auth/invalid-credential': 'The email or password is incorrect.',
     'auth/weak-password': 'Password must be at least 6 characters.',
-    'auth/invalid-email': 'Please enter a valid email address.'
+    'auth/invalid-email': 'Please enter a valid email address.',
+    'permission-denied': 'Your account was created, but Firestore blocked the store profile. Update the Firestore rules for the stores collection.'
   };
   return messages[error.code] || 'Authentication failed. Please try again.';
 }

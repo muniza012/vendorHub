@@ -63,20 +63,21 @@
 }
     /* Top Navbar */
     .navbar {
-      height: 60px;
+      height: 72px;
       background-color: var(--primary);
       border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0 20px;
+      padding: 0 28px;
       position: sticky;
       top: 0;
       z-index: 100;
     }
 .logo {
-    height:4em;
-    width: 6em;
+    height: 52px;
+    width: 116px;
+    object-fit: contain;
     background-position: cover;
   font-size: 26px;
   font-weight: 800;
@@ -97,9 +98,9 @@
     .navbar-user {
       display: flex;
       align-items: center;
-      gap: 15px;
-      font-size: 14px;
-      color: var(--text-secondary);
+      gap: 12px;
+      font-size: 15px;
+      color: #ffffff;
     }
 
     .navbar-user img {
@@ -109,7 +110,7 @@
     }
 
     .navbar-user a {
-      color: var(--text-secondary);
+      color: #ffffff;
       text-decoration: none;
       display: flex;
       align-items: center;
@@ -117,7 +118,28 @@
     }
 
     .navbar-user a:hover {
-      color: var(--primary);
+      color: #ffffff;
+      background-color: rgba(255, 255, 255, 0.14);
+    }
+
+    .navbar-user .profile-link {
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid rgba(255, 255, 255, 0.55);
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .navbar-user .logout-link {
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 6px;
+      background: var(--accent);
+      font-weight: 700;
+    }
+
+    .navbar-user .logout-link:hover {
+      background-color: var(--accent-hover);
     }
 
     /* Main Container Layout */
