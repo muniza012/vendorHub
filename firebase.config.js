@@ -41,10 +41,21 @@ async function signUpFunction(displayName, email, password, profile = {}) {
   return userCredential.user;
 }
 
+
+async function createStoreFunction(vendorId, storeData) {
+  await setDoc(doc(db, "stores", vendorId), {
+    ownerId: vendorId,
+    ...storeData,
+    createdAt: new Date().toISOString(),
+  });
+}
+
 async function loginFunction(email, password) {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   return userCredential.user;
 }
+
+
 
 async function logOutUser() {
   await signOut(auth);
@@ -52,7 +63,9 @@ async function logOutUser() {
 
 export {
   auth,
+  db,
   signUpFunction,
+  createStoreFunction,
   loginFunction,
   logOutUser,
 };

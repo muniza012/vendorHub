@@ -325,7 +325,8 @@ width: 110px;
   border-radius: 24px;
   width: min(100%, 460px);
   position: relative;
-  max-height: calc(100vh - 40px);
+ 
+  max-height: 90vh;
   overflow-y: auto;
 }
 

@@ -16,121 +16,549 @@
 <body>
   <!-- Top Navigation Bar -->
   <header class="navbar">
-    <div class="nav-left">
-      <img class="logo" src="../../assets/logonew1.png" alt="Vendor Hub logo">
-      <!-- <a href="#" class="logo">VendorHub</a> -->
-      <a href="#" class="nav-link">
-        Shop by Category <span class="chevron"></span>
-      </a>
-      <a href="#" class="nav-link">Sell With VendorHub</a>
-      <a href="#" class="nav-link">Help&Support</a>
-    </div>
-    <div class="nav-right">
-      <!-- Modal Open karne wala Button -->
-      <button class="Login" id="log" >Login</button>
-      <div id="loginModal" class="modal">
-        <div class="modal-content">
-          <span class="close-btn" id="closeBtn">&times;</span>
-          <div class="login-card">
-            <!-- Tab Headers -->
-            <div class="tab-header">
-              <button type="button" class="tab-btn active" id="customerTab" onclick="switchRole('customer')">Customer Login</button>
-              <button type="button" class="tab-btn" id="vendorTab" onclick="switchRole('vendor')">Vendor Login</button>
-            </div>
+    
+<div class="nav-left">
 
-            <!-- Form Body -->
-            <form id="loginForm" onsubmit="handleLogin(event)">
-              <h2 id="formTitle">Welcome Back!</h2>
-              <p id="formSubtitle" class="subtitle">Log in to manage your orders and wishlist.</p>
+  <img
+    class="logo"
+    src="../../assets/logonew1.png"
+    alt="Vendor Hub logo"
+  >
 
-              <!-- Hidden input to track role for API payload -->
-              <input type="hidden" id="userRole" name="role" value="customer">
 
-              <div id="loginFields">
-              <div class="form-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required placeholder="name@example.com">
-              </div>
 
-              <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required placeholder="••••••••">
-              </div>
+ 
 
-              <div class="form-options">
-                <label class="remember-me">
-                  <input type="checkbox" id="rememberMe"> Remember me
-                </label>
-                <a href="#" class="forgot-pass">Forgot Password?</a>
-              </div>
+</div>
 
-              <button type="submit" id="submitBtn" class="submit-btn">
-                Log In as Customer
-              </button>
-              <button type="button" class="vendor-signup-link" id="vendorSignupBtn" onclick="switchRole('vendor-signup')">Sign up as vendor</button>
-              </div>
 
-              <div id="vendorSignupFields" class="vendor-signup-fields" hidden>
-                <div class="form-group">
-                  <label for="storeName">Store Name</label>
-                  <input type="text" id="storeName" name="storeName" placeholder="Your store name">
-                </div>
-                <div class="form-row">
-                  <div class="form-group"><label for="ownerName">Owner Name</label><input type="text" id="ownerName" name="ownerName" placeholder="Full name"></div>
-                  <div class="form-group"><label for="phone">Phone Number</label><input type="tel" id="phone" name="phone" placeholder="+1 555 000 0000"></div>
-                </div>
-                <div class="form-group"><label for="storeCategory">Store Category</label><select id="storeCategory" name="storeCategory"><option value="">Choose a category</option><option>Fashion</option><option>Home & Living</option><option>Beauty</option><option>Food & Drink</option><option>Electronics</option></select></div>
-                <div class="form-group"><label for="vendorEmail">Business Email</label><input type="email" id="vendorEmail" name="vendorEmail" placeholder="store@example.com"></div>
-                <div class="form-row"><div class="form-group"><label for="vendorPassword">Create Password</label><input type="password" id="vendorPassword" name="vendorPassword" placeholder="At least 8 characters"></div><div class="form-group"><label for="confirmVendorPassword">Confirm Password</label><input type="password" id="confirmVendorPassword" name="confirmVendorPassword" placeholder="Repeat password"></div></div>
-                <label class="vendor-terms"><input type="checkbox" id="vendorTerms" name="vendorTerms"> I agree to the VendorHub seller terms.</label>
-                <button type="submit" id="vendorSignupSubmit" class="submit-btn">Open my store</button>
-                <button type="button" class="back-to-login" onclick="switchRole('vendor')">Already have a vendor account? Log in</button>
-              </div>
-            </form>
+<div class="nav-right">
+
+  <button
+  type="button"
+  class="nav-link nav-button"
+  id="sellWithVendorBtn"
+>
+  Sell With VendorHub
+</button>
+
+  <!-- LOGIN BUTTON -->
+  <button
+    class="Login"
+    id="log"
+    type="button"
+  >
+    Login
+  </button>
+
+
+  <!-- LOGIN MODAL -->
+  <div id="loginModal" class="modal">
+
+    <div class="modal-content">
+
+      <span
+        class="close-btn"
+        id="loginCloseBtn"
+      >
+        &times;
+      </span>
+
+      <div class="login-card">
+
+        <h2>Welcome Back!</h2>
+
+        <p class="subtitle">
+          Log in to continue to VendorHub.
+        </p>
+
+        <form id="loginForm">
+
+          <div class="form-group">
+
+            <label for="email">
+              Email Address
+            </label>
+
+            <input
+              type="email"
+              id="email"
+              required
+              placeholder="name@example.com"
+            >
+
           </div>
-        </div>
-      </div>
-      <a href="#" class="btn-join" id="openBtn">Signup</a>
-      <!-- Modal Container -->
-      <div id="signUpModal" class="modal">
-        <div class="modal-content">
-          <span class="close-btn" id="closeBtn">&times;</span>
 
-          <form class="form" id="customerSignupForm" onsubmit="handleSignup(event)">
-            <p class="title">Register </p>
-            <p class="message">Signup now and get full access to our app. </p>
-            <div class="flex">
-              <label>
-                <input required="" placeholder="" type="text" class="input" id="firstName">
-                <span>Firstname</span>
-              </label>
 
-              <label>
-                <input required="" placeholder="" type="text" class="input" id="lastName">
-                <span>Lastname</span>
-              </label>
-            </div>
+          <div class="form-group">
 
-            <label>
-              <input required="" placeholder="" type="email" class="input" id="signupEmail">
-              <span>Email</span>
+            <label for="password">
+              Password
             </label>
 
-            <label>
-              <input required="" placeholder="" type="password" class="input" id="signupPassword" minlength="6">
-              <span>Password</span>
+            <input
+              type="password"
+              id="password"
+              required
+              placeholder="••••••••"
+            >
+
+          </div>
+
+
+          <div class="form-options">
+
+            <label class="remember-me">
+
+              <input
+                type="checkbox"
+                id="rememberMe"
+              >
+
+              Remember me
+
             </label>
-            <label>
-              <input required="" placeholder="" type="password" class="input" id="confirmSignupPassword" minlength="6">
-              <span>Confirm password</span>
-            </label>
-            <button class="submit">Submit</button>
-            <p class="signin">Already have an acount ? <a href="#">Login</a> </p>
-          </form>
-        </div>
+
+            <a
+              href="#"
+              class="forgot-pass"
+            >
+              Forgot Password?
+            </a>
+
+          </div>
+
+
+          <button
+            type="submit"
+            id="submitBtn"
+            class="submit-btn"
+          >
+            Log In
+          </button>
+
+        </form>
+
       </div>
 
     </div>
+
+  </div>
+
+
+  <!-- SIGN UP BUTTON -->
+  <button
+    class="btn-join"
+    id="openBtn"
+    type="button"
+  >
+    Sign Up for free
+  </button>
+
+
+  <!-- SIGN UP CHOICE MODAL -->
+  <div
+    id="signUpChoiceModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <span
+        class="close-btn"
+        id="signupChoiceCloseBtn"
+      >
+        &times;
+      </span>
+
+      <div class="login-card">
+
+        <h2>Create Your Account</h2>
+
+        <p class="subtitle">
+          Choose how you want to use VendorHub.
+        </p>
+
+
+        <div class="signup-choice">
+
+          <button
+            type="button"
+            id="customerSignupBtn"
+            class="submit-btn"
+          >
+            Sign Up as Customer
+          </button>
+
+
+          <button
+            type="button"
+            id="vendorSignupBtn"
+            class="submit-btn"
+          >
+            Sign Up as Vendor
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- CUSTOMER SIGNUP MODAL -->
+  <div
+    id="customerSignupModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <span
+        class="close-btn"
+        id="customerSignupCloseBtn"
+      >
+        &times;
+      </span>
+
+
+      <form
+        class="form"
+        id="customerSignupForm"
+      >
+
+        <p class="title">
+          Create Account
+        </p>
+
+        <p class="message">
+          Sign up as a customer and start shopping.
+        </p>
+
+
+        <div class="flex">
+
+          <label>
+
+            <input
+              required
+              type="text"
+              class="input"
+              id="firstName"
+            >
+
+            <span>
+              Firstname
+            </span>
+
+          </label>
+
+
+          <label>
+
+            <input
+              required
+              type="text"
+              class="input"
+              id="lastName"
+            >
+
+            <span>
+              Lastname
+            </span>
+
+          </label>
+
+        </div>
+
+
+        <label>
+
+          <input
+            required
+            type="email"
+            class="input"
+            id="signupEmail"
+          >
+
+          <span>
+            Email
+          </span>
+
+        </label>
+
+
+        <label>
+
+          <input
+            required
+            type="password"
+            class="input"
+            id="signupPassword"
+            minlength="6"
+          >
+
+          <span>
+            Password
+          </span>
+
+        </label>
+
+
+        <label>
+
+          <input
+            required
+            type="password"
+            class="input"
+            id="confirmSignupPassword"
+            minlength="6"
+          >
+
+          <span>
+            Confirm password
+          </span>
+
+        </label>
+
+
+        <button
+          class="submit"
+          type="submit"
+        >
+          Create Account
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- VENDOR SIGNUP MODAL -->
+  <div
+    id="vendorSignupModal"
+    class="modal"
+  >
+
+    <div class="modal-content">
+
+      <span
+        class="close-btn"
+        id="vendorSignupCloseBtn"
+      >
+        &times;
+      </span>
+
+
+      <div class="login-card">
+
+        <h2>
+          Open Your Store
+        </h2>
+
+        <p class="subtitle">
+          Create your vendor account and start selling with VendorHub.
+        </p>
+
+
+        <form id="vendorSignupForm">
+
+          <div class="form-group">
+
+            <label for="storeName">
+              Store Name
+            </label>
+
+            <input
+              type="text"
+              id="storeName"
+              required
+              placeholder="Your store name"
+            >
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="ownerName">
+                Owner Name
+              </label>
+
+              <input
+                type="text"
+                id="ownerName"
+                required
+                placeholder="Full name"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="phone">
+                Phone Number
+              </label>
+
+              <input
+                type="tel"
+                id="phone"
+                required
+                placeholder="+92..."
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="storeCategory">
+              Store Category
+            </label>
+
+            <select
+              id="storeCategory"
+              required
+            >
+
+              <option value="">
+                Choose a category
+              </option>
+
+              <option>
+                Fashion
+              </option>
+
+              <option>
+                Home & Living
+              </option>
+
+              <option>
+                Beauty
+              </option>
+
+              <option>
+                Food & Drink
+              </option>
+
+              <option>
+                Electronics
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="store-logo">
+              Store Logo
+            </label>
+
+            <input
+              type="file"
+              id="store-logo"
+              accept="image/*"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="vendorEmail">
+              Business Email
+            </label>
+
+            <input
+              type="email"
+              id="vendorEmail"
+              required
+              placeholder="store@example.com"
+            >
+
+          </div>
+
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="vendorPassword">
+                Create Password
+              </label>
+
+              <input
+                type="password"
+                id="vendorPassword"
+                required
+                minlength="6"
+                placeholder="At least 6 characters"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="confirmVendorPassword">
+                Confirm Password
+              </label>
+
+              <input
+                type="password"
+                id="confirmVendorPassword"
+                required
+                minlength="6"
+                placeholder="Repeat password"
+              >
+
+            </div>
+
+          </div>
+
+
+          <label class="vendor-terms">
+
+            <input
+              type="checkbox"
+              id="vendorTerms"
+              required
+            >
+
+            I agree to the VendorHub seller terms.
+
+          </label>
+
+
+          <button
+            type="submit"
+            class="submit-btn"
+          >
+            Open My Store
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
   </header>
 
   <!-- Hero Section -->

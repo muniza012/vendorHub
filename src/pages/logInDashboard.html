@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>User Dashboard</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
@@ -11,20 +13,37 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
+
     <link rel="stylesheet" href="../css/output.css" />
   </head>
+
   <body class="bg-background text-text-primary font-poppins">
     <div class="header-nav bg-background sticky top-0 z-50">
+
       <!-- Navbar -->
       <nav
         class="hidden md:flex container-custom h-[40px] justify-end text-gray-600"
       >
         <div class="flex gap-4 text-xs">
-          <a href="" class="py-2 hover:text-accent-hover">Refer & Earn $50</a>
-          <a href="" class="py-2 hover:text-accent-hover">VendorHub Card</a>
-          <a href="" class="py-2 hover:text-accent-hover">VendorHub Dining</a>
-          <a href="" class="py-2 hover:text-accent-hover">VendorHub+</a>
-          <a href="" class="py-2 hover:text-accent-hover">How we make money</a>
+          <a href="" class="py-2 hover:text-accent-hover">
+            Refer & Earn $50
+          </a>
+
+          <a href="" class="py-2 hover:text-accent-hover">
+            VendorHub Card
+          </a>
+
+          <a href="" class="py-2 hover:text-accent-hover">
+            VendorHub Dining
+          </a>
+
+          <a href="" class="py-2 hover:text-accent-hover">
+            VendorHub+
+          </a>
+
+          <a href="" class="py-2 hover:text-accent-hover">
+            How we make money
+          </a>
         </div>
       </nav>
 
@@ -36,6 +55,7 @@
         <div
           class="container-custom h-full flex flex-col md:flex-row md:items-center gap-5"
         >
+
           <div
             class="logo flex items-center justify-center md:justify-evenly shrink-0"
           >
@@ -47,9 +67,10 @@
               />
             </a>
           </div>
-          <!-- Category Button -->
 
+          <!-- Category Button -->
           <div class="relative group hidden md:flex">
+
             <a
               href="#"
               class="flex items-center gap-2 text-white hover:text-accent transition"
@@ -71,13 +92,15 @@
                 class="w-64 bg-white rounded-2xl shadow-xl border border-border overflow-hidden py-2"
               ></div>
             </div>
+
           </div>
 
+          <!-- Search -->
           <div class="search flex-1">
             <div
               class="search-container flex items-center h-11 bg-white rounded-full overflow-hidden border border-gray-300 shadow-sm"
             >
-              <!-- Search Input -->
+
               <div class="search-input flex-1 px-5">
                 <input
                   id="search-input"
@@ -87,7 +110,6 @@
                 />
               </div>
 
-              <!-- Search Button -->
               <button
                 id="search-btn"
                 class="search-btn flex items-center justify-center w-14 cursor-pointer h-full bg-accent hover:bg-accent-hover transition-colors"
@@ -98,17 +120,23 @@
                   class="w-5 h-5 invert"
                 />
               </button>
+
             </div>
           </div>
+
+          <!-- Rewards -->
           <div
             class="flex justify-center rewards shrink-0 text-white text-sm items-center gap-6"
           >
+
+            <!-- Wishlist -->
             <a
               href="./wishlist.html"
               class="flex items-center gap-2 hover:text-accent group"
             >
-              <!-- Wishlist icon + badge -->
+
               <div class="relative">
+
                 <svg
                   class="w-5 h-5 stroke-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -129,17 +157,23 @@
                   class="hidden absolute -top-2 -right-2 bg-accent text-white text-[10px] w-5 h-5 rounded-full flex items-center justify-center font-semibold"
                 >
                 </span>
+
               </div>
 
-              <!-- Wishlist text -->
-              <span class="hidden lg:inline">Wishlist</span>
+              <span class="hidden lg:inline">
+                Wishlist
+              </span>
+
             </a>
+
+            <!-- Cart -->
             <a
               href="./cart.html"
               class="flex items-center gap-2 hover:text-accent group"
             >
-              <!-- Cart icon + badge -->
+
               <div class="relative">
+
                 <svg
                   class="w-5 h-5 stroke-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -150,6 +184,7 @@
                 >
                   <circle cx="9" cy="20" r="1" />
                   <circle cx="18" cy="20" r="1" />
+
                   <path
                     stroke-linecap="round"
                     stroke-linejoin="round"
@@ -163,18 +198,23 @@
                 >
                   0
                 </span>
+
               </div>
 
-              <!-- Cart text -->
-              <span class="hidden lg:inline">Cart</span>
+              <span class="hidden lg:inline">
+                Cart
+              </span>
+
             </a>
 
+            <!-- Account -->
             <div class="relative">
-              <!-- Account Button -->
+
               <button
                 id="account-btn"
                 class="flex items-center gap-2 hover:text-accent transition cursor-pointer"
               >
+
                 <svg
                   class="w-5 h-5 stroke-current"
                   xmlns="http://www.w3.org/2000/svg"
@@ -188,6 +228,7 @@
                     stroke-linejoin="round"
                     d="M20 21a8 8 0 0 0-16 0"
                   />
+
                   <circle
                     cx="12"
                     cy="8"
@@ -197,14 +238,17 @@
                   />
                 </svg>
 
-                <span class="hidden lg:inline">Account</span>
+                <span class="hidden lg:inline">
+                  Account
+                </span>
+
               </button>
 
-              <!-- Dropdown -->
               <div
                 id="account-dropdown"
                 class="hidden absolute right-0 top-full mt-2 w-40 bg-white rounded-xl border border-border shadow-xl overflow-hidden z-50"
               >
+
                 <a
                   href="orders.html"
                   class="block px-4 py-3 text-text-primary hover:bg-background hover:text-accent transition"
@@ -218,12 +262,17 @@
                 >
                   Logout
                 </button>
+
               </div>
+
             </div>
+
           </div>
+
         </div>
       </header>
       <!--header ends-->
+
     </div>
 
     <!-- Category Carousel -->
@@ -232,24 +281,29 @@
       class="border-b border-border bg-background py-5"
     >
       <div class="container-custom">
+
         <div
           id="category-carousel-container"
           class="flex gap-3 items-center justify-evenly overflow-hidden whitespace-nowrap scrollbar-hide"
         ></div>
+
       </div>
     </section>
 
     <main>
+
       <!-- Hero Banner -->
       <section
         id="hero-banner"
         class="bg-background h-auto sm:h-[150px] md:h-100 py-3 md:py-6 border-b border-border"
       >
         <div class="container-custom">
+
           <div
             class="relative overflow-hidden rounded-3xl shadow-lg"
             id="hero-slider"
           >
+
             <!-- Slides -->
             <div
               id="slides"
@@ -277,7 +331,9 @@
               id="hero-dots"
               class="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-3"
             ></div>
+
           </div>
+
         </div>
       </section>
 
@@ -286,10 +342,14 @@
         id="trending-picks"
         class="py-12 bg-background border-b border-border"
       >
+
         <div class="container-custom mt-5">
+
           <!-- Section Header -->
           <div class="flex items-center justify-between mb-8">
+
             <div>
+
               <h2
                 id="products-heading"
                 class="text-3xl font-bold text-text-primary"
@@ -300,6 +360,7 @@
               <p class="text-text-secondary mt-2">
                 Popular products everyone is shopping for.
               </p>
+
             </div>
 
             <a
@@ -308,16 +369,19 @@
             >
               View All →
             </a>
+
           </div>
 
-          <!------------------------ Products -->
+          <!-- Products -->
           <div
             id="products-container"
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4"
           >
             <!--products card-->
           </div>
+
         </div>
+
       </section>
 
       <!-- Top Stores -->
@@ -325,10 +389,15 @@
         id="top-stores"
         class="py-12 border-b border-border bg-background overflow-hidden"
       >
+
         <div class="container-custom">
+
           <!-- Heading -->
           <div class="flex items-center justify-between mb-8">
-            <h2 class="text-3xl font-bold">Top Stores</h2>
+
+            <h2 class="text-3xl font-bold">
+              Top Stores
+            </h2>
 
             <a
               href="stores.html"
@@ -336,6 +405,7 @@
             >
               View All →
             </a>
+
           </div>
 
           <!-- Stores -->
@@ -345,7 +415,9 @@
           >
             <!-- Store -->
           </div>
+
         </div>
+
       </section>
 
       <!-- Discover More -->
@@ -353,145 +425,46 @@
         id="discover-more"
         class="py-12 border-b border-border bg-background"
       >
+
         <div class="container-custom">
+
           <!-- Section Heading -->
           <div class="flex items-center justify-between mb-8">
+
             <h2 class="text-3xl font-bold text-text-primary">
               Discover VendorHub Stores
             </h2>
+
           </div>
 
           <!-- Categories -->
           <div
+            id="discover-categories-container"
             class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-8 gap-y-8"
-          >
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/food.png"
-                    alt="Fashion"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
+          ></div>
 
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Food
-                </span>
-              </a>
-            </div>
-
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/electronics.png"
-                    alt="Electronics"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Electronics
-                </span>
-              </a>
-            </div>
-
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/makeup.png"
-                    alt="Beauty"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Beauty
-                </span>
-              </a>
-            </div>
-
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/home.png"
-                    alt="Home"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Home
-                </span>
-              </a>
-            </div>
-
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/travel.png"
-                    alt="Travel"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Travel
-                </span>
-              </a>
-            </div>
-
-            <!-- Category -->
-            <div>
-              <a href="#" class="group flex flex-col items-center">
-                <div class="w-full h-full flex items-center justify-center">
-                  <img
-                    src="../../assets/category-assets/clothing.png"
-                    alt="Sports"
-                    class="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-
-                <span
-                  class="mt-2 text-center text-sm font-medium group-hover:text-accent transition-colors"
-                >
-                  Clothing
-                </span>
-              </a>
-            </div>
-          </div>
         </div>
+
       </section>
+
     </main>
 
     <!-- Footer -->
-    <footer id="footer" class="bg-primary text-white pt-14 pb-6">
+    <footer
+      id="footer"
+      class="bg-primary text-white pt-14 pb-6"
+    >
+
       <div class="container-custom">
+
         <!-- Top Footer -->
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-10 border-b border-white/20 pb-10"
         >
+
           <!-- Logo -->
           <div>
+
             <img
               src="../../assets/category-assets/logonew.png"
               alt="VendorHub"
@@ -502,15 +475,23 @@
               Shop smarter with trusted brands, exclusive deals, and a rewarding
               shopping experience.
             </p>
+
           </div>
 
           <!-- Shop -->
           <div>
-            <h3 class="text-lg font-semibold mb-5">Shop</h3>
+
+            <h3 class="text-lg font-semibold mb-5">
+              Shop
+            </h3>
 
             <ul class="space-y-3 text-sm text-gray-300">
+
               <li>
-                <a href="products.html" class="hover:text-accent transition">
+                <a
+                  href="products.html"
+                  class="hover:text-accent transition"
+                >
                   Products
                 </a>
               </li>
@@ -541,89 +522,133 @@
                   Deals
                 </a>
               </li>
+
             </ul>
+
           </div>
 
           <!-- Company -->
           <div>
-            <h3 class="text-lg font-semibold mb-5">Company</h3>
+
+            <h3 class="text-lg font-semibold mb-5">
+              Company
+            </h3>
 
             <ul class="space-y-3 text-sm text-gray-300">
+
               <li>
-                <a href="about.html" class="hover:text-accent transition">
+                <a
+                  href="about.html"
+                  class="hover:text-accent transition"
+                >
                   About Us
                 </a>
               </li>
 
               <li>
-                <a href="careers.html" class="hover:text-accent transition">
+                <a
+                  href="careers.html"
+                  class="hover:text-accent transition"
+                >
                   Careers
                 </a>
               </li>
 
               <li>
-                <a href="vendor.html" class="hover:text-accent transition">
+                <a
+                  href="vendor.html"
+                  class="hover:text-accent transition"
+                >
                   Become a Vendor
                 </a>
               </li>
 
               <li>
-                <a href="privacy.html" class="hover:text-accent transition">
+                <a
+                  href="privacy.html"
+                  class="hover:text-accent transition"
+                >
                   Privacy Policy
                 </a>
               </li>
+
             </ul>
+
           </div>
 
           <!-- Support -->
           <div>
-            <h3 class="text-lg font-semibold mb-5">Support</h3>
+
+            <h3 class="text-lg font-semibold mb-5">
+              Support
+            </h3>
 
             <ul class="space-y-3 text-sm text-gray-300">
+
               <li>
-                <a href="aboutUs.html" class="hover:text-accent transition">
-                  About s
+                <a
+                  href="aboutUs.html"
+                  class="hover:text-accent transition"
+                >
+                  About Us
                 </a>
               </li>
 
               <li>
-                <a href="contact.html" class="hover:text-accent transition">
+                <a
+                  href="contact.html"
+                  class="hover:text-accent transition"
+                >
                   Contact Us
                 </a>
               </li>
 
               <li>
-                <a href="faq.html" class="hover:text-accent transition">
+                <a
+                  href="faq.html"
+                  class="hover:text-accent transition"
+                >
                   FAQs
                 </a>
               </li>
 
               <li>
-                <a href="terms.html" class="hover:text-accent transition">
+                <a
+                  href="terms.html"
+                  class="hover:text-accent transition"
+                >
                   Terms & Conditions
                 </a>
               </li>
+
             </ul>
+
           </div>
+
         </div>
 
         <!-- Bottom Footer -->
         <div
           class="flex flex-col md:flex-row justify-between items-center gap-6 pt-6"
         >
+
           <p class="text-sm text-gray-400">
             © 2026 VendorHub. All rights reserved.
           </p>
 
           <!-- Social Icons -->
           <div class="flex items-center gap-5">
+
             <!-- Facebook -->
             <a
               href="https://facebook.com"
               class="hover:text-accent transition"
               target="_blank"
             >
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+              >
                 <path
                   d="M22 12A10 10 0 1010.4 21.9v-7H8v-2.9h2.4V9.8c0-2.4 1.4-3.8 3.6-3.8 1 0 2 .2 2 .2v2.3h-1.1c-1.1 0-1.5.7-1.5 1.5v1.8H16l-.4 2.9h-2.2v7A10 10 0 0022 12z"
                 />
@@ -636,7 +661,10 @@
               class="hover:text-accent transition"
               target="_blank"
             >
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+              >
                 <path
                   d="M7 2h10a5 5 0 015 5v10a5 5 0 01-5 5H7a5 5 0 01-5-5V7a5 5 0 015-5zm5 5.2A4.8 4.8 0 1016.8 12 4.8 4.8 0 0012 7.2zm6.2-.9a1.2 1.2 0 101.2 1.2 1.2 1.2 0 00-1.2-1.2zM12 9a3 3 0 11-3 3 3 3 0 013-3z"
                 />
@@ -649,7 +677,10 @@
               class="hover:text-accent transition"
               target="_blank"
             >
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+              >
                 <path
                   d="M18.9 2H22l-6.8 7.8L23 22h-6.2l-4.8-6.3L6.5 22H2.9l7.3-8.4L1 2h6.3l4.3 5.7L18.9 2z"
                 />
@@ -662,20 +693,27 @@
               class="hover:text-accent transition"
               target="_blank"
             >
-              <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <svg
+                class="w-6 h-6 fill-current"
+                viewBox="0 0 24 24"
+              >
                 <path
                   d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2 31 31 0 000 12a31 31 0 00.5 5.8 3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1A31 31 0 0024 12a31 31 0 00-.5-5.8zM9.7 15.5V8.5l6.1 3.5-6.1 3.5z"
                 />
               </svg>
             </a>
+
           </div>
+
         </div>
+
       </div>
+
     </footer>
-   
-    
+
     <script type="module" src="../js/logInDashboard.js"></script>
     <script type="module" src="../js/header.js"></script>
-    
+    <script type="module" src="../js/auth-guard.js"></script>
+
   </body>
 </html>
