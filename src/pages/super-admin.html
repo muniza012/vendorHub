@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Super Admin | VendorHub</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../src/css/admin-sales.css" />
+    <link rel="stylesheet" href="../../src/css/admin-catalog.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <a href="#" class="navbar-brand">
+        <img class="logo" src="../../assets/category-assets/logonew.png" alt="VendorHub Logo">
+      </a>
+      <div class="navbar-user">
+        <span id="user-name-display" class="user-name">Super Admin</span>
+        <button id="logout-btn" class="logout-link" type="button">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+      </div>
+    </header>
+
+    <div class="app-container" style="grid-template-columns: 1fr; padding: 20px;">
+      <main class="main-content" style="max-width: 1200px; margin: 0 auto; width: 100%;">
+        <div class="page-header" style="display:flex;flex-direction: column">
+          <h1 class="page-title" style="background-color: #F77F00 ; color:white;padding: 5px 10px ; border-radius: 5px;">Super Admin Control Center</h1>
+          <p>Manage all registered vendors, shops, products, and overall marketplace activity.</p>
+        </div>
+
+        <div class="metric-grid" style="margin-bottom: 25px;">
+          <div class="metric-card">
+            <span class="metric-icon orange"><i class="fa-solid fa-store"></i></span>
+            <div><span>Total Vendors</span><strong id="total-vendors">0</strong></div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon green"><i class="fa-solid fa-box-open"></i></span>
+            <div><span>Total Products</span><strong id="total-products">0</strong></div>
+          </div>
+          <div class="metric-card">
+            <span class="metric-icon blue"><i class="fa-solid fa-chart-line"></i></span>
+            <div><span>Total Platform Sales</span><strong id="total-sales">$0.00</strong></div>
+          </div>
+        </div>
+
+        <div class="order-panel card">
+          <div class="panel-toolbar">
+            <div>
+              <h3>All Vendors & Shops</h3>
+              <p id="vendor-count" style="color:#F77F00">0 shops listed</p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Owner Name</th>
+                  <th>Phone</th>
+                  <th>Shop / Email</th>
+                  <th>Products Count</th>
+                  <th>Total Sales</th>
+                  <th>Joined Date</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="vendors-table-body">
+                <tr><td colspan="7" style="text-align: center; padding: 25px;">Loading vendors...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script type="module" src="../../src/js/super-admin.js"></script>
+  </body>
+</html>

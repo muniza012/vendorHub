@@ -1,4 +1,12 @@
-import { stores, products, IMAGE_PATH } from "./data.js";
+import { db } from "../../firebase.config.js";
+import {
+  doc,
+  getDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
 const storeHeader = document.getElementById("store-header");
 const storeProductsContainer = document.getElementById(
@@ -8,13 +16,39 @@ const storeProductsHeading = document.getElementById("store-products-heading");
 
 // Get store ID from URL
 const params = new URLSearchParams(window.location.search);
-const storeId = Number(params.get("storeId"));
+const storeId = params.get("storeId");
 
-// Find selected store
-const selectedStore = stores.find((store) => store.id === storeId);
 
-// If store doesn't exist
-if (!selectedStore) {
+async function loadStore() {
+  const storeRef = doc(db, "stores", storeId);
+  const storeSnapshot = await getDoc(storeRef);
+
+  if (!storeSnapshot.exists()) {
+    showStoreNotFound();
+    return;
+  }
+
+  const selectedStore = {
+    id: storeSnapshot.id,
+    ...storeSnapshot.data(),
+  };
+
+  const productsQuery = query(
+    collection(db, "products"),
+    where("vendorId", "==", storeId),
+  );
+
+  const productsSnapshot = await getDocs(productsQuery);
+
+  const storeProducts = productsSnapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  renderStore(selectedStore, storeProducts);
+}
+
+function showStoreNotFound() {
   storeHeader.innerHTML = `
     <div class="py-10 text-center">
       <h1 class="text-2xl font-bold text-text-primary">
@@ -37,16 +71,11 @@ if (!selectedStore) {
   `;
 
   storeProductsContainer.innerHTML = "";
-} else {
-  // Find products belonging to this store
-  const storeProducts = products.filter(
-    (product) => product.vendorId === storeId,
-  );
+}
 
-  // Update page title
-  document.title = `${selectedStore.name} - VendorHub`;
+function renderStore(selectedStore, storeProducts) {
+  document.title = `${selectedStore.storeName} - VendorHub`;
 
-  // Render store header
   storeHeader.innerHTML = `
     <div class="flex flex-col sm:flex-row items-center gap-6">
 
@@ -54,11 +83,9 @@ if (!selectedStore) {
         class="w-28 h-28 rounded-2xl bg-gray-50
                flex items-center justify-center shrink-0"
       >
-        <img
-          src="${IMAGE_PATH}${selectedStore.logo}"
-          alt="${selectedStore.alt}"
-          class="max-w-[90px] max-h-[70px] object-contain"
-        />
+        <div class="text-4xl font-bold text-accent">
+          ${selectedStore.storeName.charAt(0).toUpperCase()}
+        </div>
       </div>
 
       <div class="text-center sm:text-left">
@@ -70,13 +97,12 @@ if (!selectedStore) {
           class="text-3xl sm:text-4xl font-bold
                  text-white mt-1"
         >
-          ${selectedStore.name}
+          ${selectedStore.storeName}
         </h1>
 
         <p class="mt-2 text-white">
-          ${storeProducts.length} ${
-            storeProducts.length === 1 ? "product" : "products"
-          }
+          ${storeProducts.length}
+          ${storeProducts.length === 1 ? "product" : "products"}
           available
         </p>
       </div>
@@ -84,10 +110,8 @@ if (!selectedStore) {
     </div>
   `;
 
-  // Update heading
-  storeProductsHeading.textContent = `${selectedStore.name} Products`;
+  storeProductsHeading.textContent = `${selectedStore.storeName} Products`;
 
-  // No products
   if (storeProducts.length === 0) {
     storeProductsContainer.innerHTML = `
       <div class="col-span-full py-20 text-center">
@@ -102,104 +126,68 @@ if (!selectedStore) {
 
       </div>
     `;
-  } else {
-    renderStoreProducts(storeProducts);
+
+    return;
   }
 
-  // Product rendering
-  function renderStoreProducts(productsToRender) {
-    let html = "";
+  let html = "";
 
-    productsToRender.forEach((product) => {
-      html += `
-        <article
-          class="group bg-white border border-border
-                 rounded-2xl overflow-hidden shadow-sm
-                 hover:shadow-lg hover:-translate-y-1
-                 transition-all duration-300 cursor-pointer"
-          data-product-id="${product.id}"
-        >
+  storeProducts.forEach((product) => {
+    html += `
+    <a
+    href="productDetails.html?id=${product.id}"
+    class="product-card"
+  >
 
-          <!-- Product Image -->
-          <div
-            class="h-52 bg-gray-50 flex items-center
-                   justify-center overflow-hidden"
+        <div class="product-image-wrap">
+          <img
+            src="${product.imageUrl}"
+            alt="${product.name}"
           >
-            <img
-              src="${IMAGE_PATH}${product.image}"
-              alt="${product.alt}"
-              class="w-full h-full object-contain
-                     group-hover:scale-105
-                     transition-transform duration-300"
-            />
-          </div>
+        </div>
 
-          <!-- Product Info -->
-          <div class="p-4">
+        <div class="product-card-body">
 
-            <p class="text-xs text-text-secondary">
-              ${product.brand}
-            </p>
+          <p class="product-category" style='color:red'>
+            ${product.category}
+          </p>
 
-            <h3
-              class="font-semibold text-text-primary
-                     mt-1 line-clamp-2
-                     group-hover:text-accent transition-colors"
-            >
-              ${product.name}
-            </h3>
+          <h3>
+          <strong>
+            ${product.name}
+            </strong>
+          </h3>
 
-            <div class="flex items-center gap-2 mt-3">
-              <span class="text-lg font-bold text-text-primary">
-                ${product.currency}${product.price.toFixed(2)}
-              </span>
+          <div class="product-meta">
+            <strong>
+              $${product.price}
+            </strong>
 
+            <span style='color:green ; padding-left:10px'>
               ${
-                product.originalPrice
-                  ? `
-                    <span class="text-xs text-text-secondary line-through">
-                      ${product.currency}${product.originalPrice.toFixed(2)}
-                    </span>
-                  `
-                  : ""
+                product.stock === 0
+                  ? "Out of stock"
+                  : `${product.stock} in stock`
               }
-            </div>
-
-            ${
-              product.discount
-                ? `
-                  <p class="text-sm text-accent font-medium mt-2">
-                    ${product.discount}
-                  </p>
-                `
-                : ""
-            }
-
-            <div class="flex items-center gap-1 mt-3 text-sm">
-              <span class="text-accent">★</span>
-              <span class="font-medium">${product.rating}</span>
-              <span class="text-text-secondary">
-                (${product.reviews})
-              </span>
-            </div>
-
+            </span>
           </div>
 
-        </article>
-      `;
-    });
+        </div>
 
-    storeProductsContainer.innerHTML = html;
-  }
-
-  // Product click
-  storeProductsContainer.addEventListener("click", (event) => {
-    const productCard = event.target.closest("[data-product-id]");
-
-    if (!productCard) return;
-
-    const productId = Number(productCard.dataset.productId);
-
-    window.location.href = `productDetails.html?id=${productId}`;
+      </a>
+    `;
   });
+
+  storeProductsContainer.innerHTML = html;
 }
+loadStore();
+storeProductsContainer.addEventListener("click", (event) => {
+  const productCard = event.target.closest("[data-product-id]");
+
+  if (!productCard) return;
+
+  const productId = productCard.dataset.productId;
+
+  window.location.href = `productDetails.html?productId=${productId}`;
+});
+

@@ -1,4 +1,10 @@
+
 @import url("admin-dashboard.css");
+
+
+/* =========================================
+   CATALOG VIEW
+========================================= */
 
 .catalog-view {
   display: block;
@@ -8,8 +14,331 @@
   color: var(--primary);
 }
 
+
+/* =========================================
+   PRODUCT MODAL
+========================================= */
+
+/* Dark background behind modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.45);
+
+  overflow: hidden;
+}
+
+
+/* Modal box */
+.product-modal {
+  width: min(760px, 100%);
+  max-height: calc(100vh - 40px);
+
+  display: flex;
+  flex-direction: column;
+
+  background: var(--surface);
+
+  border-radius: 20px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.18);
+
+  overflow: hidden;
+}
+
+
+/* =========================================
+   MODAL HEADER
+========================================= */
+
+.modal-header {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 28px;
+
+  border-bottom: 1px solid var(--border);
+}
+
+
+/* Close button */
+.modal-close {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+  border-radius: 50%;
+
+  background: transparent;
+
+  color: var(--text-secondary);
+
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+
+.modal-close:hover {
+  background: var(--background);
+  color: var(--text-primary);
+}
+
+
+/* =========================================
+   PRODUCT FORM
+========================================= */
+
+/*
+  The form is the scrolling area.
+
+  The modal header stays visible.
+  The buttons at the bottom stay visible.
+*/
+#product-form {
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 28px;
+
+  overflow-y: auto;
+
+  scrollbar-width: thin;
+}
+
+
+/* =========================================
+   FORM GRID
+========================================= */
+
+.form-grid {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 18px;
+}
+
+
+/* Form labels */
+.form-grid label {
+  display: flex;
+  flex-direction: column;
+
+  gap: 7px;
+
+  font-size: 13px;
+  font-weight: 400;
+
+  color: var(--text-primary);
+}
+.navbar-user {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.user-name {
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.logout-link {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0;
+  transition: color 0.2s ease-in-out;
+}
+
+.logout-link:hover {
+  color: #F77F00; /* Accent hover color */
+}
+
+
+/* Inputs */
+.form-grid input,
+.form-grid select,
+.form-grid textarea {
+  width: 100%;
+
+  padding: 12px 14px;
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  background: var(--surface);
+
+  color: var(--text-primary);
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+/* Input focus */
+.form-grid input:focus,
+.form-grid select:focus,
+.form-grid textarea:focus {
+  border-color: var(--accent);
+
+  box-shadow: 0 0 0 3px rgba(247, 127, 0, 0.12);
+}
+
+
+/* Textarea */
+.form-grid textarea {
+  resize: vertical;
+
+  min-height: 120px;
+}
+
+
+/* File input */
+.form-grid input[type="file"] {
+  padding: 10px;
+}
+
+
+/* Full-width fields */
+.full-width {
+  grid-column: 1 / -1;
+}
+
+
+/* =========================================
+   MODAL ACTIONS
+========================================= */
+
+.modal-actions {
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  gap: 12px;
+
+  padding-top: 24px;
+
+  margin-top: 8px;
+
+  border-top: 1px solid var(--border);
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
 @media (max-width: 992px) {
   .catalog-view {
     width: 100%;
   }
 }
+
+
+@media (max-width: 700px) {
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .modal-backdrop {
+    padding: 15px;
+
+    align-items: center;
+  }
+
+  .product-modal {
+    width: 100%;
+
+    max-height: calc(100vh - 30px);
+
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    padding: 20px;
+  }
+
+  #product-form {
+    padding: 20px;
+  }
+
+  .modal-actions {
+    flex-direction: column-reverse;
+
+    align-items: stretch;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================
+   VERY SMALL SCREENS
+========================================= */
+
+@media (max-width: 480px) {
+
+  .modal-backdrop {
+    padding: 10px;
+  }
+
+  .product-modal {
+    max-height: calc(100vh - 20px);
+  }
+
+  .modal-header {
+    padding: 16px;
+  }
+
+  #product-form {
+    padding: 16px;
+  }
+
+  .form-grid {
+    gap: 14px;
+  }
+}
+

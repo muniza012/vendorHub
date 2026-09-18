@@ -1,12 +1,21 @@
-import { stores, products, IMAGE_PATH } from "./data.js";
-const urlParams = new URLSearchParams(window.location.search);
-const storeFilter = urlParams.get("filter");
+import { db } from "../../firebase.config.js";
+import {
+  collection,
+  getDocs,
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
+
 const storesContainer = document.getElementById("stores-container");
 
-let storesToRender = [...stores];
+let storesToRender = [];
+async function loadStores() {
+  const snapshot = await getDocs(collection(db, "stores"));
 
-if (storeFilter === "new") {
-  storesToRender = stores.filter((store) => store.isNew);
+  storesToRender = snapshot.docs.map((doc) => ({
+    id: doc.id,
+    ...doc.data(),
+  }));
+
+  renderStores();
 }
 
 function renderStores() {
@@ -23,15 +32,24 @@ function renderStores() {
       >
         <div
           class="h-40 flex items-center justify-center
-                 bg-gray-50 group-hover:bg-background
+                  group-hover:bg-background
                  transition-colors duration-300"
         >
-          <img
-            src="${IMAGE_PATH}${store.logo}"
-            alt="${store.alt}"
-            class="max-w-[120px] max-h-[90px] object-contain
-                   group-hover:scale-105 transition-transform duration-300"
-          />
+        ${
+          store.logoUrl
+            ? `
+              <img
+                src="${store.logoUrl}"
+                alt="${store.storeName} logo"
+                class="w-full h-full object-contain"
+              />
+            `
+            : `
+              <div class="text-4xl font-bold  text-accent">
+                ${store.storeName.charAt(0).toUpperCase()}
+              </div>
+            `
+        }
         </div>
 
         <div class="p-4 text-center border-t border-border">
@@ -39,7 +57,7 @@ function renderStores() {
             class="font-semibold text-text-primary
                    group-hover:text-accent transition-colors"
           >
-            ${store.name}
+          ${store.storeName}
           </h2>
 
           <p class="mt-1 text-xs text-text-secondary">
@@ -52,19 +70,14 @@ function renderStores() {
 
   storesContainer.innerHTML = html;
 }
-
-renderStores();
+loadStores();
 
 storesContainer.addEventListener("click", (event) => {
   const storeCard = event.target.closest("[data-store-id]");
 
   if (!storeCard) return;
 
-  const storeId = Number(storeCard.dataset.storeId);
-
-  const selectedStore = stores.find((store) => store.id === storeId);
-
-  if (!selectedStore) return;
+  const storeId = storeCard.dataset.storeId;
 
   window.location.href = `storeProducts.html?storeId=${storeId}`;
 });

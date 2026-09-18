@@ -46,29 +46,20 @@ async function signUpFunction(displayName, email, password, profile = {}) {
   return userCredential.user;
 }
 
+
+async function createStoreFunction(vendorId, storeData) {
+  await setDoc(doc(db, "stores", vendorId), {
+    ownerId: vendorId,
+    ...storeData,
+    createdAt: new Date().toISOString(),
+  });
+}
+
 async function loginFunction(email, password) {
   const userCredential = await signInWithEmailAndPassword(auth, email, password);
   return userCredential.user;
 }
 
-async function getUserProfile(uid) {
-  const snapshot = await getDoc(doc(db, "users", uid));
-  return snapshot.exists() ? snapshot.data() : null;
-}
-
-async function getVendorProfile(uid) {
-  const storeSnapshot = await getDoc(doc(db, "stores", uid));
-  if (storeSnapshot.exists()) return storeSnapshot.data();
-  const vendorSnapshot = await getDoc(doc(db, "vendors", uid));
-  return vendorSnapshot.exists() ? vendorSnapshot.data() : getUserProfile(uid);
-}
-
-async function updateVendorProfile(uid, profile) {
-  const updatedProfile = { ...profile, updatedAt: new Date().toISOString() };
-  await setDoc(doc(db, "stores", uid), updatedProfile, { merge: true });
-  await setDoc(doc(db, "users", uid), updatedProfile, { merge: true });
-  return updatedProfile;
-}
 
 async function logOutUser() {
   await signOut(auth);
@@ -76,7 +67,9 @@ async function logOutUser() {
 
 export {
   auth,
+  db,
   signUpFunction,
+  createStoreFunction,
   loginFunction,
   getUserProfile,
   getVendorProfile,

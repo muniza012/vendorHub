@@ -75,9 +75,8 @@
       z-index: 100;
     }
 .logo {
-    height: 52px;
-    width: 116px;
-    object-fit: contain;
+    height:1.75em;
+    width: 6em;
     background-position: cover;
   font-size: 26px;
   font-weight: 800;
@@ -85,15 +84,7 @@
   letter-spacing: -0.5px;
   text-decoration: none;
 }
-    /* .navbar-brand img {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--primary);
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    } */
+   
 
     .navbar-user {
       display: flex;
