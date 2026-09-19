@@ -71,8 +71,8 @@ export {
   signUpFunction,
   createStoreFunction,
   loginFunction,
-  getUserProfile,
-  getVendorProfile,
-  updateVendorProfile,
+  // getUserProfile,
+  // getVendorProfile,
+  // updateVendorProfile,
   logOutUser,
 };
