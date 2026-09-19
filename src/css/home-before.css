@@ -1097,3 +1097,9 @@ body {
     animation: none;
   }
 }
+
+@media (max-width:600px){
+  .nav-link{
+display: none;
+  }
+}
