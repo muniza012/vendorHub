@@ -60,6 +60,7 @@ width: 110px;
   align-items: center;
   gap: 6px;
   cursor: pointer;
+  display: block;
 }
 
 .nav-link:hover {
