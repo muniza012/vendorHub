@@ -9,6 +9,7 @@ import {
 import {
   getFirestore,
   doc,
+  getDoc,
   setDoc,
 } from "https://www.gstatic.com/firebasejs/12.19.0/firebase-firestore.js";
 
@@ -28,16 +29,20 @@ const db = getFirestore(app);
 
 async function signUpFunction(displayName, email, password, profile = {}) {
   const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-  if (displayName) {
-    await updateProfile(userCredential.user, { displayName });
-  }
-  await setDoc(doc(db, "users", userCredential.user.uid), {
+  const profileData = {
     uid: userCredential.user.uid,
     email: userCredential.user.email,
     displayName: displayName || "",
     ...profile,
     createdAt: new Date().toISOString(),
-  });
+  };
+  if (displayName) {
+    await updateProfile(userCredential.user, { displayName });
+  }
+  if (profile.role === "seller") {
+    await setDoc(doc(db, "stores", userCredential.user.uid), profileData);
+  }
+  await setDoc(doc(db, "users", userCredential.user.uid), profileData);
   return userCredential.user;
 }
 
@@ -56,7 +61,6 @@ async function loginFunction(email, password) {
 }
 
 
-
 async function logOutUser() {
   await signOut(auth);
 }
@@ -67,5 +71,8 @@ export {
   signUpFunction,
   createStoreFunction,
   loginFunction,
+  getUserProfile,
+  getVendorProfile,
+  updateVendorProfile,
   logOutUser,
 };
